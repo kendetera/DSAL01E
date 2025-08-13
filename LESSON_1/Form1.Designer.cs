@@ -69,6 +69,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(200, 74);
             pictureBox1.Margin = new Padding(3, 2, 3, 2);
@@ -81,6 +82,7 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.BorderStyle = BorderStyle.Fixed3D;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(336, 74);
             pictureBox2.Margin = new Padding(3, 2, 3, 2);
@@ -92,6 +94,7 @@
             // 
             // pictureBox3
             // 
+            pictureBox3.BorderStyle = BorderStyle.Fixed3D;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(472, 74);
             pictureBox3.Margin = new Padding(3, 2, 3, 2);
@@ -103,6 +106,7 @@
             // 
             // pictureBox4
             // 
+            pictureBox4.BorderStyle = BorderStyle.Fixed3D;
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
             pictureBox4.Location = new Point(609, 74);
             pictureBox4.Margin = new Padding(3, 2, 3, 2);
@@ -114,6 +118,7 @@
             // 
             // pictureBox5
             // 
+            pictureBox5.BorderStyle = BorderStyle.Fixed3D;
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new Point(746, 74);
             pictureBox5.Margin = new Padding(3, 2, 3, 2);
@@ -125,6 +130,7 @@
             // 
             // pictureBox6
             // 
+            pictureBox6.BorderStyle = BorderStyle.Fixed3D;
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
             pictureBox6.Location = new Point(746, 176);
             pictureBox6.Margin = new Padding(3, 2, 3, 2);
@@ -136,6 +142,7 @@
             // 
             // pictureBox7
             // 
+            pictureBox7.BorderStyle = BorderStyle.Fixed3D;
             pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
             pictureBox7.Location = new Point(609, 176);
             pictureBox7.Margin = new Padding(3, 2, 3, 2);
@@ -147,6 +154,7 @@
             // 
             // pictureBox8
             // 
+            pictureBox8.BorderStyle = BorderStyle.Fixed3D;
             pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
             pictureBox8.Location = new Point(472, 176);
             pictureBox8.Margin = new Padding(3, 2, 3, 2);
@@ -158,6 +166,7 @@
             // 
             // pictureBox9
             // 
+            pictureBox9.BorderStyle = BorderStyle.Fixed3D;
             pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
             pictureBox9.Location = new Point(336, 176);
             pictureBox9.Margin = new Padding(3, 2, 3, 2);
@@ -169,6 +178,7 @@
             // 
             // pictureBox10
             // 
+            pictureBox10.BorderStyle = BorderStyle.Fixed3D;
             pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
             pictureBox10.Location = new Point(200, 176);
             pictureBox10.Margin = new Padding(3, 2, 3, 2);
@@ -180,6 +190,7 @@
             // 
             // pictureBox11
             // 
+            pictureBox11.BorderStyle = BorderStyle.Fixed3D;
             pictureBox11.Image = (Image)resources.GetObject("pictureBox11.Image");
             pictureBox11.Location = new Point(746, 278);
             pictureBox11.Margin = new Padding(3, 2, 3, 2);
@@ -191,6 +202,7 @@
             // 
             // pictureBox12
             // 
+            pictureBox12.BorderStyle = BorderStyle.Fixed3D;
             pictureBox12.Image = (Image)resources.GetObject("pictureBox12.Image");
             pictureBox12.Location = new Point(609, 278);
             pictureBox12.Margin = new Padding(3, 2, 3, 2);
@@ -202,6 +214,7 @@
             // 
             // pictureBox13
             // 
+            pictureBox13.BorderStyle = BorderStyle.Fixed3D;
             pictureBox13.Image = (Image)resources.GetObject("pictureBox13.Image");
             pictureBox13.Location = new Point(472, 278);
             pictureBox13.Margin = new Padding(3, 2, 3, 2);
@@ -213,6 +226,7 @@
             // 
             // pictureBox14
             // 
+            pictureBox14.BorderStyle = BorderStyle.Fixed3D;
             pictureBox14.Image = (Image)resources.GetObject("pictureBox14.Image");
             pictureBox14.Location = new Point(336, 278);
             pictureBox14.Margin = new Padding(3, 2, 3, 2);
@@ -224,6 +238,7 @@
             // 
             // pictureBox15
             // 
+            pictureBox15.BorderStyle = BorderStyle.Fixed3D;
             pictureBox15.Image = (Image)resources.GetObject("pictureBox15.Image");
             pictureBox15.Location = new Point(200, 278);
             pictureBox15.Margin = new Padding(3, 2, 3, 2);
