@@ -107,6 +107,5 @@ namespace LESSON_1
         {
             this.Close();
         }
-
     }
 }
