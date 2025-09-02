@@ -74,7 +74,7 @@
             label2 = new Label();
             itemnametxtbox = new TextBox();
             label3 = new Label();
-            textBox2 = new TextBox();
+            quantitytxtbox = new TextBox();
             label20 = new Label();
             pricetxtbox = new TextBox();
             label21 = new Label();
@@ -82,10 +82,14 @@
             discount_txtbox = new TextBox();
             discounted_txtbox = new TextBox();
             groupBox2 = new GroupBox();
-            button4 = new Button();
+            noDiscRdBtn = new RadioButton();
+            employeeDiscRdBtn = new RadioButton();
+            withDiscCardRdBtn = new RadioButton();
+            seniorCtznRdBtn = new RadioButton();
+            exitBtn = new Button();
             button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            newBtn = new Button();
+            calculateBtn = new Button();
             label27 = new Label();
             label28 = new Label();
             label29 = new Label();
@@ -95,7 +99,7 @@
             qty_totalbox = new TextBox();
             groupBox4 = new GroupBox();
             changetxtbox = new TextBox();
-            textBox9 = new TextBox();
+            cash_renderedtxtbox = new TextBox();
             label31 = new Label();
             label30 = new Label();
             pictureBox21 = new PictureBox();
@@ -676,12 +680,12 @@
             label3.TabIndex = 34;
             label3.Text = "Quantity:";
             // 
-            // textBox2
+            // quantitytxtbox
             // 
-            textBox2.Location = new Point(185, 116);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(208, 23);
-            textBox2.TabIndex = 35;
+            quantitytxtbox.Location = new Point(185, 116);
+            quantitytxtbox.Name = "quantitytxtbox";
+            quantitytxtbox.Size = new Size(138, 23);
+            quantitytxtbox.TabIndex = 35;
             // 
             // label20
             // 
@@ -697,7 +701,7 @@
             // 
             pricetxtbox.Location = new Point(185, 152);
             pricetxtbox.Name = "pricetxtbox";
-            pricetxtbox.Size = new Size(208, 23);
+            pricetxtbox.Size = new Size(138, 23);
             pricetxtbox.TabIndex = 39;
             // 
             // label21
@@ -724,67 +728,122 @@
             // 
             discount_txtbox.Location = new Point(185, 189);
             discount_txtbox.Name = "discount_txtbox";
-            discount_txtbox.Size = new Size(208, 23);
+            discount_txtbox.Size = new Size(138, 23);
             discount_txtbox.TabIndex = 42;
             // 
             // discounted_txtbox
             // 
             discounted_txtbox.Location = new Point(185, 224);
             discounted_txtbox.Name = "discounted_txtbox";
-            discounted_txtbox.Size = new Size(208, 23);
+            discounted_txtbox.Size = new Size(138, 23);
             discounted_txtbox.TabIndex = 43;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(button4);
+            groupBox2.Controls.Add(noDiscRdBtn);
+            groupBox2.Controls.Add(employeeDiscRdBtn);
+            groupBox2.Controls.Add(withDiscCardRdBtn);
+            groupBox2.Controls.Add(seniorCtznRdBtn);
+            groupBox2.Controls.Add(exitBtn);
             groupBox2.Controls.Add(button3);
-            groupBox2.Controls.Add(button2);
-            groupBox2.Controls.Add(button1);
+            groupBox2.Controls.Add(newBtn);
+            groupBox2.Controls.Add(calculateBtn);
             groupBox2.Location = new Point(21, 49);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(569, 221);
             groupBox2.TabIndex = 44;
             groupBox2.TabStop = false;
             // 
-            // button4
+            // noDiscRdBtn
             // 
-            button4.Font = new Font("Arial Narrow", 12F, FontStyle.Bold);
-            button4.Location = new Point(378, 169);
-            button4.Name = "button4";
-            button4.Size = new Size(173, 32);
-            button4.TabIndex = 3;
-            button4.Text = "EXIT";
-            button4.UseVisualStyleBackColor = true;
+            noDiscRdBtn.AutoSize = true;
+            noDiscRdBtn.Location = new Point(318, 177);
+            noDiscRdBtn.Name = "noDiscRdBtn";
+            noDiscRdBtn.Size = new Size(91, 19);
+            noDiscRdBtn.TabIndex = 7;
+            noDiscRdBtn.TabStop = true;
+            noDiscRdBtn.Text = "No Discount";
+            noDiscRdBtn.UseVisualStyleBackColor = true;
+            noDiscRdBtn.CheckedChanged += noDiscRdBtn_CheckedChanged;
+            // 
+            // employeeDiscRdBtn
+            // 
+            employeeDiscRdBtn.AutoSize = true;
+            employeeDiscRdBtn.Location = new Point(318, 145);
+            employeeDiscRdBtn.Name = "employeeDiscRdBtn";
+            employeeDiscRdBtn.Size = new Size(105, 19);
+            employeeDiscRdBtn.TabIndex = 6;
+            employeeDiscRdBtn.TabStop = true;
+            employeeDiscRdBtn.Text = "Employee Disc.";
+            employeeDiscRdBtn.UseVisualStyleBackColor = true;
+            employeeDiscRdBtn.CheckedChanged += employeeDiscRdBtn_CheckedChanged;
+            // 
+            // withDiscCardRdBtn
+            // 
+            withDiscCardRdBtn.AutoSize = true;
+            withDiscCardRdBtn.Location = new Point(318, 107);
+            withDiscCardRdBtn.Name = "withDiscCardRdBtn";
+            withDiscCardRdBtn.Size = new Size(106, 19);
+            withDiscCardRdBtn.TabIndex = 5;
+            withDiscCardRdBtn.TabStop = true;
+            withDiscCardRdBtn.Text = "With Disc. Card";
+            withDiscCardRdBtn.UseVisualStyleBackColor = true;
+            withDiscCardRdBtn.CheckedChanged += withDiscCardRdBtn_CheckedChanged;
+            // 
+            // seniorCtznRdBtn
+            // 
+            seniorCtznRdBtn.AutoSize = true;
+            seniorCtznRdBtn.Location = new Point(318, 71);
+            seniorCtznRdBtn.Name = "seniorCtznRdBtn";
+            seniorCtznRdBtn.Size = new Size(97, 19);
+            seniorCtznRdBtn.TabIndex = 4;
+            seniorCtznRdBtn.TabStop = true;
+            seniorCtznRdBtn.Text = "Senior Citizen";
+            seniorCtznRdBtn.UseVisualStyleBackColor = true;
+            seniorCtznRdBtn.CheckedChanged += seniorCtznRdBtn_CheckedChanged;
+            // 
+            // exitBtn
+            // 
+            exitBtn.Font = new Font("Arial Narrow", 12F, FontStyle.Bold);
+            exitBtn.Location = new Point(437, 169);
+            exitBtn.Name = "exitBtn";
+            exitBtn.Size = new Size(114, 32);
+            exitBtn.TabIndex = 3;
+            exitBtn.Text = "EXIT";
+            exitBtn.UseVisualStyleBackColor = true;
+            exitBtn.Click += exitBtn_Click;
             // 
             // button3
             // 
             button3.Font = new Font("Arial Narrow", 12F, FontStyle.Bold);
-            button3.Location = new Point(378, 134);
+            button3.Location = new Point(437, 134);
             button3.Name = "button3";
-            button3.Size = new Size(173, 32);
+            button3.Size = new Size(114, 32);
             button3.TabIndex = 2;
             button3.Text = "CANCEL";
             button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // newBtn
             // 
-            button2.Font = new Font("Arial Narrow", 12F, FontStyle.Bold);
-            button2.Location = new Point(377, 97);
-            button2.Name = "button2";
-            button2.Size = new Size(173, 32);
-            button2.TabIndex = 1;
-            button2.Text = "NEW";
-            button2.UseVisualStyleBackColor = true;
+            newBtn.Font = new Font("Arial Narrow", 12F, FontStyle.Bold);
+            newBtn.Location = new Point(436, 97);
+            newBtn.Name = "newBtn";
+            newBtn.Size = new Size(114, 32);
+            newBtn.TabIndex = 1;
+            newBtn.Text = "NEW";
+            newBtn.UseVisualStyleBackColor = true;
+            newBtn.Click += newBtn_Click;
             // 
-            // button1
+            // calculateBtn
             // 
-            button1.Font = new Font("Arial Narrow", 12F, FontStyle.Bold);
-            button1.Location = new Point(378, 61);
-            button1.Name = "button1";
-            button1.Size = new Size(173, 32);
-            button1.TabIndex = 0;
-            button1.Text = "CALCULATE";
-            button1.UseVisualStyleBackColor = true;
+            calculateBtn.Font = new Font("Arial Narrow", 12F, FontStyle.Bold);
+            calculateBtn.Location = new Point(437, 61);
+            calculateBtn.Name = "calculateBtn";
+            calculateBtn.Size = new Size(114, 32);
+            calculateBtn.TabIndex = 0;
+            calculateBtn.Text = "CALCULATE";
+            calculateBtn.UseVisualStyleBackColor = true;
+            calculateBtn.Click += calculateBtn_Click;
             // 
             // label27
             // 
@@ -856,7 +915,7 @@
             // groupBox4
             // 
             groupBox4.Controls.Add(changetxtbox);
-            groupBox4.Controls.Add(textBox9);
+            groupBox4.Controls.Add(cash_renderedtxtbox);
             groupBox4.Controls.Add(label31);
             groupBox4.Controls.Add(label30);
             groupBox4.Location = new Point(21, 435);
@@ -867,19 +926,21 @@
             // 
             // changetxtbox
             // 
+            changetxtbox.Font = new Font("Century Gothic", 20.25F);
             changetxtbox.Location = new Point(293, 61);
             changetxtbox.Multiline = true;
             changetxtbox.Name = "changetxtbox";
             changetxtbox.Size = new Size(270, 57);
             changetxtbox.TabIndex = 52;
             // 
-            // textBox9
+            // cash_renderedtxtbox
             // 
-            textBox9.Location = new Point(11, 61);
-            textBox9.Multiline = true;
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(270, 57);
-            textBox9.TabIndex = 50;
+            cash_renderedtxtbox.Font = new Font("Century Gothic", 20.25F);
+            cash_renderedtxtbox.Location = new Point(11, 61);
+            cash_renderedtxtbox.Multiline = true;
+            cash_renderedtxtbox.Name = "cash_renderedtxtbox";
+            cash_renderedtxtbox.Size = new Size(270, 57);
+            cash_renderedtxtbox.TabIndex = 50;
             // 
             // label31
             // 
@@ -1098,7 +1159,7 @@
             Controls.Add(label21);
             Controls.Add(pricetxtbox);
             Controls.Add(label20);
-            Controls.Add(textBox2);
+            Controls.Add(quantitytxtbox);
             Controls.Add(label3);
             Controls.Add(itemnametxtbox);
             Controls.Add(label2);
@@ -1133,6 +1194,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox17).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox16).EndInit();
             groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             groupBox4.ResumeLayout(false);
@@ -1164,7 +1226,7 @@
         private Label label2;
         private TextBox itemnametxtbox;
         private Label label3;
-        private TextBox textBox2;
+        private TextBox quantitytxtbox;
         private Label name10lbl;
         private Label name1lbl;
         private Label name15lbl;
@@ -1188,9 +1250,9 @@
         private TextBox discount_txtbox;
         private TextBox discounted_txtbox;
         private GroupBox groupBox2;
-        private Button button2;
-        private Button button1;
-        private Button button4;
+        private Button newBtn;
+        private Button calculateBtn;
+        private Button exitBtn;
         private Button button3;
         private Label name20lbl;
         private Label name19lbl;
@@ -1210,7 +1272,7 @@
         private TextBox qty_totalbox;
         private GroupBox groupBox4;
         private TextBox changetxtbox;
-        private TextBox textBox9;
+        private TextBox cash_renderedtxtbox;
         private Label label31;
         private Label label30;
         private PictureBox pictureBox21;
@@ -1230,5 +1292,9 @@
         private Button button18;
         private Button button19;
         private Button button20;
+        private RadioButton noDiscRdBtn;
+        private RadioButton employeeDiscRdBtn;
+        private RadioButton withDiscCardRdBtn;
+        private RadioButton seniorCtznRdBtn;
     }
 }

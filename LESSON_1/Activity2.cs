@@ -107,7 +107,7 @@ namespace LESSON_1
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            name8lbl.Text = "Family Bucket Meal";   
+            name8lbl.Text = "Family Bucket Meal";
             itemnametxtbox.Text = "Bucket Meal B";
             pricetxtbox.Text = "999.90";
         }
@@ -121,7 +121,7 @@ namespace LESSON_1
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            name6lbl.Text = "Chickenjoy C2";    
+            name6lbl.Text = "Chickenjoy C2";
             itemnametxtbox.Text = "Chickenjoy C2";
             pricetxtbox.Text = "149.10";
         }
@@ -142,7 +142,7 @@ namespace LESSON_1
 
         private void pictureBox13_Click(object sender, EventArgs e)
         {
-            name13lbl.Text = "Pancake Meal";    
+            name13lbl.Text = "Pancake Meal";
             itemnametxtbox.Text = "Pancake Meal";
             pricetxtbox.Text = "97.30";
         }
@@ -194,6 +194,164 @@ namespace LESSON_1
             name20lbl.Text = "Jolly Hotdog";
             itemnametxtbox.Text = "Jolly Hotdog";
             pricetxtbox.Text = "130.90";
+        }
+
+        private void seniorCtznRdBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            // Declaration of variables
+            int qty;
+            double price, discount_amt, discounted_amt;
+
+            // Convert string data to numeric data
+            qty = Convert.ToInt32(quantitytxtbox.Text);
+            price = Convert.ToDouble(pricetxtbox.Text);
+
+            // Calculation
+            discount_amt = (qty * price) * 0.30;
+            discounted_amt = (qty * price) - discount_amt;
+
+            // Convert numeric data to string data and display in textboxes
+            discount_txtbox.Text = discount_amt.ToString("n");
+            discounted_txtbox.Text = discounted_amt.ToString("n");
+
+            // Codes for disabling other radio buttons when one is selected
+            withDiscCardRdBtn.Enabled = false;
+            employeeDiscRdBtn.Enabled = false;
+            noDiscRdBtn.Enabled = false;
+        }
+
+        private void withDiscCardRdBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            // Declaration of variables
+            int qty;
+            double price, discount_amt, discounted_amt;
+
+            // Convert string data to numeric data
+            qty = Convert.ToInt32(quantitytxtbox.Text);
+            price = Convert.ToDouble(pricetxtbox.Text);
+
+            // Calculation
+            discount_amt = (qty * price) * 0.10;
+            discounted_amt = (qty * price) - discount_amt;
+
+            // Convert numeric data to string data and display in textboxes
+            discount_txtbox.Text = discount_amt.ToString("n");
+            discounted_txtbox.Text = discounted_amt.ToString("n");
+
+            // Codes for disabling other radio buttons when one is selected
+            seniorCtznRdBtn.Enabled = false;
+            employeeDiscRdBtn.Enabled = false;
+            noDiscRdBtn.Enabled = false;
+        }
+
+        private void employeeDiscRdBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            // Declaration of variables
+            int qty;
+            double price, discount_amt, discounted_amt;
+
+            // Convert string data to numeric data
+            qty = Convert.ToInt32(quantitytxtbox.Text);
+            price = Convert.ToDouble(pricetxtbox.Text);
+
+            // Calculation
+            discount_amt = (qty * price) * 0.15;
+            discounted_amt = (qty * price) - discount_amt;
+
+            // Convert numeric data to string data and display in textboxes
+            discount_txtbox.Text = discount_amt.ToString("n");
+            discounted_txtbox.Text = discounted_amt.ToString("n");
+
+            // Codes for disabling other radio buttons when one is selected
+            seniorCtznRdBtn.Enabled = false;
+            withDiscCardRdBtn.Enabled = false;
+            noDiscRdBtn.Enabled = false;
+        }
+
+        private void noDiscRdBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            // Declaration of variables
+            int qty;
+            double price, discount_amt, discounted_amt;
+
+            // Convert string data to numeric data
+            qty = Convert.ToInt32(quantitytxtbox.Text);
+            price = Convert.ToDouble(pricetxtbox.Text);
+
+            // Calculation
+            discount_amt = (qty * price) * 0;
+            discounted_amt = (qty * price) - discount_amt;
+
+            // Convert numeric data to string data and display in textboxes
+            discount_txtbox.Text = discount_amt.ToString("n");
+            discounted_txtbox.Text = discounted_amt.ToString("n");
+
+            // Codes for disabling other radio buttons when one is selected
+            seniorCtznRdBtn.Enabled = false;
+            withDiscCardRdBtn.Enabled = false;
+            employeeDiscRdBtn.Enabled = false;
+        }
+
+        private void calculateBtn_Click(object sender, EventArgs e)
+        {
+            // Declaration of variables
+            int qty;
+            double price, discount_amt, discounted_amt, cash_rendered, change;
+
+            // Convert string data to numeric data
+            qty = Convert.ToInt32(quantitytxtbox.Text);
+            discount_amt = Convert.ToDouble(discount_txtbox.Text);
+            discounted_amt = Convert.ToDouble(discounted_txtbox.Text);
+            cash_rendered = Convert.ToDouble(cash_renderedtxtbox.Text);
+
+            int qty_total = 0;
+            double discount_totalgiven = 0, discounted_total = 0;
+
+
+            // Codes to accumulate the value of the quantity, discount given, and discounted amount from one transaction to another
+            qty_total += qty;
+            discount_totalgiven += discount_amt;
+            discounted_total += discounted_amt;
+            change = cash_rendered - discounted_amt;
+
+            // Convert string data to numeric data and place it  as value of the variable
+            qty_totalbox.Text = qty_total.ToString();
+            discount_totalbox.Text = discount_totalgiven.ToString("n");
+            discounted_totalbox.Text = discounted_total.ToString("n");
+            changetxtbox.Text = change.ToString("n");
+            cash_renderedtxtbox.Text = cash_rendered.ToString("n");
+
+        }
+
+        private void newBtn_Click(object sender, EventArgs e)
+        {
+            // Code for clearing all textboxes
+            itemnametxtbox.Clear();
+            pricetxtbox.Clear();
+            quantitytxtbox.Clear();
+            discount_txtbox.Clear();
+            discounted_txtbox.Clear();
+            cash_renderedtxtbox.Clear();
+            changetxtbox.Clear();
+            qty_totalbox.Clear();
+            discount_totalbox.Clear();
+            discounted_totalbox.Clear();
+
+            // Re-enable and clear discount selection
+            seniorCtznRdBtn.Enabled = true;
+            withDiscCardRdBtn.Enabled = true;
+            employeeDiscRdBtn.Enabled = true;
+            noDiscRdBtn.Enabled = true;
+
+            seniorCtznRdBtn.Checked = false;
+            withDiscCardRdBtn.Checked = false;
+            employeeDiscRdBtn.Checked = false;
+            noDiscRdBtn.Checked = false;
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
