@@ -296,7 +296,7 @@ namespace LESSON_1
         {
             // Declaration of variables
             int qty;
-            double price, discount_amt, discounted_amt, cash_rendered, change;
+            double discount_amt, discounted_amt, cash_rendered, change;
 
             // Convert string data to numeric data
             qty = Convert.ToInt32(quantitytxtbox.Text);

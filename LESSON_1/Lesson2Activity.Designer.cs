@@ -60,7 +60,7 @@ namespace LESSON_1
             label14 = new Label();
             creditUnitsTxtBox = new TextBox();
             totalNumUnitsTxtBox = new TextBox();
-            textBox14 = new TextBox();
+            comLabTxtBox = new TextBox();
             ciscoLabFeeTxtBox = new TextBox();
             totalMiscFeeTxtBox = new TextBox();
             totalTuitionFeeTxtBox = new TextBox();
@@ -102,12 +102,13 @@ namespace LESSON_1
             label36 = new Label();
             label37 = new Label();
             label38 = new Label();
-            textBox24 = new TextBox();
+            comLabFeeTxtBox = new TextBox();
             ciscoLabFee2TxtBox = new TextBox();
             examBookletFee2TxtBox = new TextBox();
-            textBox27 = new TextBox();
+            totalOtherFeeTxtBox = new TextBox();
             totalNumUnits2TxtBox = new TextBox();
             totalTuitionAndFee2TxtBox = new TextBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -387,12 +388,12 @@ namespace LESSON_1
             totalNumUnitsTxtBox.Size = new Size(365, 23);
             totalNumUnitsTxtBox.TabIndex = 31;
             // 
-            // textBox14
+            // comLabTxtBox
             // 
-            textBox14.Location = new Point(813, 370);
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(365, 23);
-            textBox14.TabIndex = 32;
+            comLabTxtBox.Location = new Point(813, 370);
+            comLabTxtBox.Name = "comLabTxtBox";
+            comLabTxtBox.Size = new Size(365, 23);
+            comLabTxtBox.TabIndex = 32;
             // 
             // ciscoLabFeeTxtBox
             // 
@@ -770,12 +771,12 @@ namespace LESSON_1
             label38.TabIndex = 75;
             label38.Text = "Total Other School Fees:";
             // 
-            // textBox24
+            // comLabFeeTxtBox
             // 
-            textBox24.Location = new Point(322, 885);
-            textBox24.Name = "textBox24";
-            textBox24.Size = new Size(276, 23);
-            textBox24.TabIndex = 76;
+            comLabFeeTxtBox.Location = new Point(322, 885);
+            comLabFeeTxtBox.Name = "comLabFeeTxtBox";
+            comLabFeeTxtBox.Size = new Size(276, 23);
+            comLabFeeTxtBox.TabIndex = 76;
             // 
             // ciscoLabFee2TxtBox
             // 
@@ -791,12 +792,12 @@ namespace LESSON_1
             examBookletFee2TxtBox.Size = new Size(276, 23);
             examBookletFee2TxtBox.TabIndex = 78;
             // 
-            // textBox27
+            // totalOtherFeeTxtBox
             // 
-            textBox27.Location = new Point(322, 982);
-            textBox27.Name = "textBox27";
-            textBox27.Size = new Size(276, 23);
-            textBox27.TabIndex = 79;
+            totalOtherFeeTxtBox.Location = new Point(322, 982);
+            totalOtherFeeTxtBox.Name = "totalOtherFeeTxtBox";
+            totalOtherFeeTxtBox.Size = new Size(276, 23);
+            totalOtherFeeTxtBox.TabIndex = 79;
             // 
             // totalNumUnits2TxtBox
             // 
@@ -812,17 +813,30 @@ namespace LESSON_1
             totalTuitionAndFee2TxtBox.Size = new Size(345, 23);
             totalTuitionAndFee2TxtBox.TabIndex = 81;
             // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.Control;
+            button1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(1054, 170);
+            button1.Name = "button1";
+            button1.Size = new Size(124, 37);
+            button1.TabIndex = 82;
+            button1.Text = "Calculate";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1238, 1061);
+            Controls.Add(button1);
             Controls.Add(totalTuitionAndFee2TxtBox);
             Controls.Add(totalNumUnits2TxtBox);
-            Controls.Add(textBox27);
+            Controls.Add(totalOtherFeeTxtBox);
             Controls.Add(examBookletFee2TxtBox);
             Controls.Add(ciscoLabFee2TxtBox);
-            Controls.Add(textBox24);
+            Controls.Add(comLabFeeTxtBox);
             Controls.Add(label38);
             Controls.Add(label37);
             Controls.Add(label36);
@@ -864,7 +878,7 @@ namespace LESSON_1
             Controls.Add(ciscoLabFeeTxtBox);
             Controls.Add(totalMiscFeeTxtBox);
             Controls.Add(totalTuitionFeeTxtBox);
-            Controls.Add(textBox14);
+            Controls.Add(comLabTxtBox);
             Controls.Add(totalNumUnitsTxtBox);
             Controls.Add(creditUnitsTxtBox);
             Controls.Add(label14);
@@ -942,7 +956,7 @@ namespace LESSON_1
         private Label label14;
         private TextBox creditUnitsTxtBox;
         private TextBox totalNumUnitsTxtBox;
-        private TextBox textBox14;
+        private TextBox comLabTxtBox;
         private TextBox ciscoLabFeeTxtBox;
         private TextBox totalMiscFeeTxtBox;
         private TextBox totalTuitionFeeTxtBox;
@@ -984,11 +998,12 @@ namespace LESSON_1
         private Label label36;
         private Label label37;
         private Label label38;
-        private TextBox textBox24;
+        private TextBox comLabFeeTxtBox;
         private TextBox ciscoLabFee2TxtBox;
         private TextBox examBookletFee2TxtBox;
-        private TextBox textBox27;
+        private TextBox totalOtherFeeTxtBox;
         private TextBox totalNumUnits2TxtBox;
         private TextBox totalTuitionAndFee2TxtBox;
+        private Button button1;
     }
 }
