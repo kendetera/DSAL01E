@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace LESSON_1
 {
@@ -45,12 +46,10 @@ namespace LESSON_1
 
             grossIncome = basicIncome + honorariumIncome + otherIncome;
 
-
             grossIncomeTxtBox.Text = grossIncome.ToString("n");
             biIncomeTxtBox.Text = basicIncome.ToString("n");
             hiIncomeTxtBox.Text = honorariumIncome.ToString("n");
             oiIncomeTxtBox.Text = otherIncome.ToString("n");
-
 
             if (grossIncome < 5250)
                 sssContrib = 760.00;
@@ -177,7 +176,6 @@ namespace LESSON_1
                 sssContrib = 5280.00;
             }
 
-
             if (grossIncome <= 250000)
                 incomeTaxContrib = 0.00;
             else if (grossIncome > 250000 && grossIncome <= 400000)
@@ -200,12 +198,10 @@ namespace LESSON_1
                 philhealthContrib = grossIncome * 0.05;
             }
 
-
             sssContribTxtBox.Text = sssContrib.ToString("n");
             philhealthContribTxtBox.Text = philhealthContrib.ToString("n");
             pagibigContribTxtBox.Text = pagibigContrib.ToString("n");
             incomeTaxContribTxtBox.Text = incomeTaxContrib.ToString("n");
-
         }
 
         private void netIncomeBtn_Click(object sender, EventArgs e)
@@ -227,8 +223,8 @@ namespace LESSON_1
 
             totalDeductionsTxtBox.Text = totalDeductions.ToString("n");
             netIncomeTxtBox.Text = netIncome.ToString("n");
-
         }
+
         private static void ClearTextBoxes(Control parent)
         {
             foreach (Control c in parent.Controls)
@@ -240,15 +236,60 @@ namespace LESSON_1
                     ClearTextBoxes(c);
             }
         }
+
         private void newBtn_Click(object sender, EventArgs e)
         {
             ClearTextBoxes(this);
             biRateTxtBox.Focus();
         }
 
+        private static double ParseNumber(string text)
+            => double.TryParse(text, NumberStyles.Any, CultureInfo.CurrentCulture, out var v) ? v : 0d;
+
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            
+            // Ensure computed fields are populated; ignore errors if inputs are incomplete
+            try
+            {
+                grossIncomeBtn_Click(sender, e);
+                netIncomeBtn_Click(sender, e);
+            }
+            catch
+            {
+                // Intentionally ignore parse errors; we'll default missing numbers to 0
+            }
+
+            var data = new payslip.PayrollData(
+                BasicRate: ParseNumber(biRateTxtBox.Text),
+                BasicHours: ParseNumber(biHoursTxtBox.Text),
+                BasicIncome: ParseNumber(biIncomeTxtBox.Text),
+                HonorariumRate: ParseNumber(hiRateTxtBox.Text),
+                HonorariumHours: ParseNumber(hiHoursTxtBox.Text),
+                HonorariumIncome: ParseNumber(hiIncomeTxtBox.Text),
+                OtherRate: ParseNumber(oiRateTxtBox.Text),
+                OtherHours: ParseNumber(oiHoursTxtBox.Text),
+                OtherIncome: ParseNumber(oiIncomeTxtBox.Text),
+                GrossIncome: ParseNumber(grossIncomeTxtBox.Text),
+                SssContrib: ParseNumber(sssContribTxtBox.Text),
+                PagibigContrib: ParseNumber(pagibigContribTxtBox.Text),
+                PhilhealthContrib: ParseNumber(philhealthContribTxtBox.Text),
+                IncomeTaxContrib: ParseNumber(incomeTaxContribTxtBox.Text),
+                SssLoan: ParseNumber(sssLoanTxtBox.Text),
+                PagibigLoan: ParseNumber(pagibigLoanTxtBox.Text),
+                FacultyDeposit: ParseNumber(facultyDepositTxtBox.Text),
+                FacultyLoan: ParseNumber(facultyLoanTxtBox.Text),
+                SalaryLoan: ParseNumber(salaryLoanTxtBox.Text),
+                OtherLoans: ParseNumber(otherLoansTxtBox.Text),
+                TotalDeductions: ParseNumber(totalDeductionsTxtBox.Text),
+                NetIncome: ParseNumber(netIncomeTxtBox.Text)
+            );
+
+            using var dlg = new payslip(data)
+            {
+                StartPosition = FormStartPosition.CenterParent,
+                Text = "Payslip Preview"
+            };
+            dlg.ShowDialog(this);
         }
     }
 }

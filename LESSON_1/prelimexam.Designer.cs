@@ -57,9 +57,9 @@
             label14 = new Label();
             label16 = new Label();
             label17 = new Label();
-            textBox12 = new TextBox();
-            textBox13 = new TextBox();
-            textBox14 = new TextBox();
+            surnameTxtBox = new TextBox();
+            middleNameTxtBox = new TextBox();
+            firstNameTxtBox = new TextBox();
             label18 = new Label();
             label19 = new Label();
             label20 = new Label();
@@ -93,20 +93,20 @@
             saveBtn = new Button();
             updateBtn = new Button();
             newBtn = new Button();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            dependentTxtBox = new TextBox();
+            civStatusTxtBox = new TextBox();
             label35 = new Label();
             label36 = new Label();
             label37 = new Label();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
+            designationTxtBox = new TextBox();
+            employeeStatusTxtBox = new TextBox();
             label38 = new Label();
             label39 = new Label();
-            textBox6 = new TextBox();
-            textBox7 = new TextBox();
+            departmentTxtBox = new TextBox();
+            employeeNumberTxtBox = new TextBox();
             label40 = new Label();
             label41 = new Label();
-            textBox1 = new TextBox();
+            payDateTxtBox = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -366,26 +366,26 @@
             label17.TabIndex = 34;
             label17.Text = "SUMMARY INCOME:";
             // 
-            // textBox12
+            // surnameTxtBox
             // 
-            textBox12.Location = new Point(746, 140);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(170, 23);
-            textBox12.TabIndex = 44;
+            surnameTxtBox.Location = new Point(746, 140);
+            surnameTxtBox.Name = "surnameTxtBox";
+            surnameTxtBox.Size = new Size(170, 23);
+            surnameTxtBox.TabIndex = 44;
             // 
-            // textBox13
+            // middleNameTxtBox
             // 
-            textBox13.Location = new Point(746, 111);
-            textBox13.Name = "textBox13";
-            textBox13.Size = new Size(170, 23);
-            textBox13.TabIndex = 43;
+            middleNameTxtBox.Location = new Point(746, 111);
+            middleNameTxtBox.Name = "middleNameTxtBox";
+            middleNameTxtBox.Size = new Size(170, 23);
+            middleNameTxtBox.TabIndex = 43;
             // 
-            // textBox14
+            // firstNameTxtBox
             // 
-            textBox14.Location = new Point(746, 80);
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(170, 23);
-            textBox14.TabIndex = 42;
+            firstNameTxtBox.Location = new Point(746, 80);
+            firstNameTxtBox.Name = "firstNameTxtBox";
+            firstNameTxtBox.Size = new Size(170, 23);
+            firstNameTxtBox.TabIndex = 42;
             // 
             // label18
             // 
@@ -683,19 +683,19 @@
             newBtn.UseVisualStyleBackColor = true;
             newBtn.Click += newBtn_Click;
             // 
-            // textBox2
+            // dependentTxtBox
             // 
-            textBox2.Location = new Point(746, 201);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(170, 23);
-            textBox2.TabIndex = 79;
+            dependentTxtBox.Location = new Point(746, 201);
+            dependentTxtBox.Name = "dependentTxtBox";
+            dependentTxtBox.Size = new Size(170, 23);
+            dependentTxtBox.TabIndex = 79;
             // 
-            // textBox3
+            // civStatusTxtBox
             // 
-            textBox3.Location = new Point(746, 172);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(170, 23);
-            textBox3.TabIndex = 78;
+            civStatusTxtBox.Location = new Point(746, 172);
+            civStatusTxtBox.Name = "civStatusTxtBox";
+            civStatusTxtBox.Size = new Size(170, 23);
+            civStatusTxtBox.TabIndex = 78;
             // 
             // label35
             // 
@@ -727,19 +727,19 @@
             label37.TabIndex = 75;
             label37.Text = "Civil Status:";
             // 
-            // textBox4
+            // designationTxtBox
             // 
-            textBox4.Location = new Point(746, 297);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(170, 23);
-            textBox4.TabIndex = 84;
+            designationTxtBox.Location = new Point(746, 297);
+            designationTxtBox.Name = "designationTxtBox";
+            designationTxtBox.Size = new Size(170, 23);
+            designationTxtBox.TabIndex = 84;
             // 
-            // textBox5
+            // employeeStatusTxtBox
             // 
-            textBox5.Location = new Point(746, 266);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(170, 23);
-            textBox5.TabIndex = 83;
+            employeeStatusTxtBox.Location = new Point(746, 266);
+            employeeStatusTxtBox.Name = "employeeStatusTxtBox";
+            employeeStatusTxtBox.Size = new Size(170, 23);
+            employeeStatusTxtBox.TabIndex = 83;
             // 
             // label38
             // 
@@ -761,19 +761,19 @@
             label39.TabIndex = 81;
             label39.Text = "Employee Status:";
             // 
-            // textBox6
+            // departmentTxtBox
             // 
-            textBox6.Location = new Point(269, 322);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(170, 23);
-            textBox6.TabIndex = 88;
+            departmentTxtBox.Location = new Point(269, 322);
+            departmentTxtBox.Name = "departmentTxtBox";
+            departmentTxtBox.Size = new Size(170, 23);
+            departmentTxtBox.TabIndex = 88;
             // 
-            // textBox7
+            // employeeNumberTxtBox
             // 
-            textBox7.Location = new Point(269, 291);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(170, 23);
-            textBox7.TabIndex = 87;
+            employeeNumberTxtBox.Location = new Point(269, 291);
+            employeeNumberTxtBox.Name = "employeeNumberTxtBox";
+            employeeNumberTxtBox.Size = new Size(170, 23);
+            employeeNumberTxtBox.TabIndex = 87;
             // 
             // label40
             // 
@@ -795,29 +795,29 @@
             label41.TabIndex = 85;
             label41.Text = "Employee Number:";
             // 
-            // textBox1
+            // payDateTxtBox
             // 
-            textBox1.Location = new Point(746, 234);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(170, 23);
-            textBox1.TabIndex = 89;
+            payDateTxtBox.Location = new Point(746, 234);
+            payDateTxtBox.Name = "payDateTxtBox";
+            payDateTxtBox.Size = new Size(170, 23);
+            payDateTxtBox.TabIndex = 89;
             // 
             // prelimexam
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1175, 904);
-            Controls.Add(textBox1);
-            Controls.Add(textBox6);
-            Controls.Add(textBox7);
+            Controls.Add(payDateTxtBox);
+            Controls.Add(departmentTxtBox);
+            Controls.Add(employeeNumberTxtBox);
             Controls.Add(label40);
             Controls.Add(label41);
-            Controls.Add(textBox4);
-            Controls.Add(textBox5);
+            Controls.Add(designationTxtBox);
+            Controls.Add(employeeStatusTxtBox);
             Controls.Add(label38);
             Controls.Add(label39);
-            Controls.Add(textBox2);
-            Controls.Add(textBox3);
+            Controls.Add(dependentTxtBox);
+            Controls.Add(civStatusTxtBox);
             Controls.Add(label35);
             Controls.Add(label36);
             Controls.Add(label37);
@@ -851,9 +851,9 @@
             Controls.Add(label22);
             Controls.Add(label23);
             Controls.Add(label24);
-            Controls.Add(textBox12);
-            Controls.Add(textBox13);
-            Controls.Add(textBox14);
+            Controls.Add(surnameTxtBox);
+            Controls.Add(middleNameTxtBox);
+            Controls.Add(firstNameTxtBox);
             Controls.Add(label18);
             Controls.Add(label19);
             Controls.Add(label20);
@@ -924,9 +924,9 @@
         private Label label14;
         private Label label16;
         private Label label17;
-        private TextBox textBox12;
-        private TextBox textBox13;
-        private TextBox textBox14;
+        private TextBox surnameTxtBox;
+        private TextBox middleNameTxtBox;
+        private TextBox firstNameTxtBox;
         private Label label18;
         private Label label19;
         private Label label20;
@@ -960,19 +960,19 @@
         private Button saveBtn;
         private Button updateBtn;
         private Button newBtn;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox dependentTxtBox;
+        private TextBox civStatusTxtBox;
         private Label label35;
         private Label label36;
         private Label label37;
-        private TextBox textBox4;
-        private TextBox textBox5;
+        private TextBox designationTxtBox;
+        private TextBox employeeStatusTxtBox;
         private Label label38;
         private Label label39;
-        private TextBox textBox6;
-        private TextBox textBox7;
+        private TextBox departmentTxtBox;
+        private TextBox employeeNumberTxtBox;
         private Label label40;
         private Label label41;
-        private TextBox textBox1;
+        private TextBox payDateTxtBox;
     }
 }
