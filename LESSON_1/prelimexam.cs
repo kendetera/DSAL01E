@@ -243,53 +243,39 @@ namespace LESSON_1
             biRateTxtBox.Focus();
         }
 
-        private static double ParseNumber(string text)
-            => double.TryParse(text, NumberStyles.Any, CultureInfo.CurrentCulture, out var v) ? v : 0d;
-
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            // Ensure computed fields are populated; ignore errors if inputs are incomplete
-            try
-            {
-                grossIncomeBtn_Click(sender, e);
-                netIncomeBtn_Click(sender, e);
-            }
-            catch
-            {
-                // Intentionally ignore parse errors; we'll default missing numbers to 0
-            }
+            payslipreport print = new payslipreport();
 
-            var data = new payslip.PayrollData(
-                BasicRate: ParseNumber(biRateTxtBox.Text),
-                BasicHours: ParseNumber(biHoursTxtBox.Text),
-                BasicIncome: ParseNumber(biIncomeTxtBox.Text),
-                HonorariumRate: ParseNumber(hiRateTxtBox.Text),
-                HonorariumHours: ParseNumber(hiHoursTxtBox.Text),
-                HonorariumIncome: ParseNumber(hiIncomeTxtBox.Text),
-                OtherRate: ParseNumber(oiRateTxtBox.Text),
-                OtherHours: ParseNumber(oiHoursTxtBox.Text),
-                OtherIncome: ParseNumber(oiIncomeTxtBox.Text),
-                GrossIncome: ParseNumber(grossIncomeTxtBox.Text),
-                SssContrib: ParseNumber(sssContribTxtBox.Text),
-                PagibigContrib: ParseNumber(pagibigContribTxtBox.Text),
-                PhilhealthContrib: ParseNumber(philhealthContribTxtBox.Text),
-                IncomeTaxContrib: ParseNumber(incomeTaxContribTxtBox.Text),
-                SssLoan: ParseNumber(sssLoanTxtBox.Text),
-                PagibigLoan: ParseNumber(pagibigLoanTxtBox.Text),
-                FacultyDeposit: ParseNumber(facultyDepositTxtBox.Text),
-                FacultyLoan: ParseNumber(facultyLoanTxtBox.Text),
-                SalaryLoan: ParseNumber(salaryLoanTxtBox.Text),
-                OtherLoans: ParseNumber(otherLoansTxtBox.Text),
-                TotalDeductions: ParseNumber(totalDeductionsTxtBox.Text),
-                NetIncome: ParseNumber(netIncomeTxtBox.Text)
-            );
+            // Populate via public properties (avoids accessing private controls)
+            print.EmployeeCode = employeeNumberTxtBox.Text;
+            print.EmployeeName = $"{firstNameTxtBox.Text} {middleNameTxtBox.Text} {surnameTxtBox.Text}";
+            print.Department   = departmentTxtBox.Text;
+            print.CutOff       = payDateTxtBox.Text;
+            print.PayPeriod    = payDateTxtBox.Text;
 
-            using var dlg = new payslip(data)
-            {
-                StartPosition = FormStartPosition.CenterParent,
-                Text = "Payslip Preview"
-            };
-            dlg.ShowDialog(this);
+            print.BasicPayHrs      = biHoursTxtBox.Text;
+            print.BasicPayIncome   = biIncomeTxtBox.Text;
+            print.HonorariumHrs    = hiHoursTxtBox.Text;
+            print.HonorariumIncome = hiIncomeTxtBox.Text;
+            print.OvertimeHrs      = oiHoursTxtBox.Text;
+            print.OvertimeIncome   = oiIncomeTxtBox.Text;
+
+            print.WithholdingTax = incomeTaxContribTxtBox.Text;
+            print.SSS            = sssContribTxtBox.Text;
+            print.Pagibig        = pagibigContribTxtBox.Text;
+            print.Philhealth     = philhealthContribTxtBox.Text;
+            print.Wisp           = "750";
+
+            print.Earnings   = grossIncomeTxtBox.Text;
+            print.Deductions = totalDeductionsTxtBox.Text;
+            print.Overtime   = oiIncomeTxtBox.Text;
+
+            print.Gross       = grossIncomeTxtBox.Text;
+            print.NetPay      = netIncomeTxtBox.Text;
+            print.Deductions  = totalDeductionsTxtBox.Text;
+
+            print.Show();
         }
     }
 }
