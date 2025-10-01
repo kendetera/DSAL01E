@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace LESSON_1
 {
     // Activity2 form: Displays menu items as clickable images and shows item details.
     public partial class Activity2 : Form
-    {
+    {           
         // Constructor: Initializes the form and its components.
         public Activity2()
         {
@@ -198,23 +199,23 @@ namespace LESSON_1
 
         private void seniorCtznRdBtn_CheckedChanged(object sender, EventArgs e)
         {
-            // Declaration of variables
-            int qty;
-            double price, discount_amt, discounted_amt;
+            var rb = sender as RadioButton;
+            if (rb == null || !rb.Checked) return;
 
-            // Convert string data to numeric data
-            qty = Convert.ToInt32(quantitytxtbox.Text);
-            price = Convert.ToDouble(pricetxtbox.Text);
+            if (!int.TryParse(quantitytxtbox.Text, out int qty) ||
+                !double.TryParse(pricetxtbox.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out double price))
+            {
+                discount_txtbox.Clear();
+                discounted_txtbox.Clear();
+                return;
+            }
 
-            // Calculation
-            discount_amt = (qty * price) * 0.30;
-            discounted_amt = (qty * price) - discount_amt;
+            double discount_amt = (qty * price) * 0.30;
+            double discounted_amt = (qty * price) - discount_amt;
 
-            // Convert numeric data to string data and display in textboxes
             discount_txtbox.Text = discount_amt.ToString("n");
             discounted_txtbox.Text = discounted_amt.ToString("n");
 
-            // Codes for disabling other radio buttons when one is selected
             withDiscCardRdBtn.Enabled = false;
             employeeDiscRdBtn.Enabled = false;
             noDiscRdBtn.Enabled = false;
@@ -222,23 +223,23 @@ namespace LESSON_1
 
         private void withDiscCardRdBtn_CheckedChanged(object sender, EventArgs e)
         {
-            // Declaration of variables
-            int qty;
-            double price, discount_amt, discounted_amt;
+            var rb = sender as RadioButton;
+            if (rb == null || !rb.Checked) return;
 
-            // Convert string data to numeric data
-            qty = Convert.ToInt32(quantitytxtbox.Text);
-            price = Convert.ToDouble(pricetxtbox.Text);
+            if (!int.TryParse(quantitytxtbox.Text, out int qty) ||
+                !double.TryParse(pricetxtbox.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out double price))
+            {
+                discount_txtbox.Clear();
+                discounted_txtbox.Clear();
+                return;
+            }
 
-            // Calculation
-            discount_amt = (qty * price) * 0.10;
-            discounted_amt = (qty * price) - discount_amt;
+            double discount_amt = (qty * price) * 0.10;
+            double discounted_amt = (qty * price) - discount_amt;
 
-            // Convert numeric data to string data and display in textboxes
             discount_txtbox.Text = discount_amt.ToString("n");
             discounted_txtbox.Text = discounted_amt.ToString("n");
 
-            // Codes for disabling other radio buttons when one is selected
             seniorCtznRdBtn.Enabled = false;
             employeeDiscRdBtn.Enabled = false;
             noDiscRdBtn.Enabled = false;
@@ -246,23 +247,23 @@ namespace LESSON_1
 
         private void employeeDiscRdBtn_CheckedChanged(object sender, EventArgs e)
         {
-            // Declaration of variables
-            int qty;
-            double price, discount_amt, discounted_amt;
+            var rb = sender as RadioButton;
+            if (rb == null || !rb.Checked) return;
 
-            // Convert string data to numeric data
-            qty = Convert.ToInt32(quantitytxtbox.Text);
-            price = Convert.ToDouble(pricetxtbox.Text);
+            if (!int.TryParse(quantitytxtbox.Text, out int qty) ||
+                !double.TryParse(pricetxtbox.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out double price))
+            {
+                discount_txtbox.Clear();
+                discounted_txtbox.Clear();
+                return;
+            }
 
-            // Calculation
-            discount_amt = (qty * price) * 0.15;
-            discounted_amt = (qty * price) - discount_amt;
+            double discount_amt = (qty * price) * 0.15;
+            double discounted_amt = (qty * price) - discount_amt;
 
-            // Convert numeric data to string data and display in textboxes
             discount_txtbox.Text = discount_amt.ToString("n");
             discounted_txtbox.Text = discounted_amt.ToString("n");
 
-            // Codes for disabling other radio buttons when one is selected
             seniorCtznRdBtn.Enabled = false;
             withDiscCardRdBtn.Enabled = false;
             noDiscRdBtn.Enabled = false;
@@ -270,23 +271,23 @@ namespace LESSON_1
 
         private void noDiscRdBtn_CheckedChanged(object sender, EventArgs e)
         {
-            // Declaration of variables
-            int qty;
-            double price, discount_amt, discounted_amt;
+            var rb = sender as RadioButton;
+            if (rb == null || !rb.Checked) return;
 
-            // Convert string data to numeric data
-            qty = Convert.ToInt32(quantitytxtbox.Text);
-            price = Convert.ToDouble(pricetxtbox.Text);
+            if (!int.TryParse(quantitytxtbox.Text, out int qty) ||
+                !double.TryParse(pricetxtbox.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out double price))
+            {
+                discount_txtbox.Clear();
+                discounted_txtbox.Clear();
+                return;
+            }
 
-            // Calculation
-            discount_amt = (qty * price) * 0;
-            discounted_amt = (qty * price) - discount_amt;
+            double discount_amt = 0;
+            double discounted_amt = (qty * price) - discount_amt;
 
-            // Convert numeric data to string data and display in textboxes
             discount_txtbox.Text = discount_amt.ToString("n");
             discounted_txtbox.Text = discounted_amt.ToString("n");
 
-            // Codes for disabling other radio buttons when one is selected
             seniorCtznRdBtn.Enabled = false;
             withDiscCardRdBtn.Enabled = false;
             employeeDiscRdBtn.Enabled = false;
@@ -294,33 +295,50 @@ namespace LESSON_1
 
         private void calculateBtn_Click(object sender, EventArgs e)
         {
-            // Declaration of variables
-            int qty;
-            double discount_amt, discounted_amt, cash_rendered, change;
+            if (!int.TryParse(quantitytxtbox.Text, out int qty))
+            {
+                MessageBox.Show("Please enter a valid quantity.");
+                quantitytxtbox.Focus();
+                return;
+            }
 
-            // Convert string data to numeric data
-            qty = Convert.ToInt32(quantitytxtbox.Text);
-            discount_amt = Convert.ToDouble(discount_txtbox.Text);
-            discounted_amt = Convert.ToDouble(discounted_txtbox.Text);
-            cash_rendered = Convert.ToDouble(cash_renderedtxtbox.Text);
+            // Discount fields might be empty if no radio button selected
+            double discount_amt = 0;
+            double discounted_amt = 0;
+
+            // Try parse with current culture because ToString("n") used current culture for formatting
+            double.TryParse(discount_txtbox.Text, NumberStyles.Number, CultureInfo.CurrentCulture, out discount_amt);
+            if (!double.TryParse(discounted_txtbox.Text, NumberStyles.Number, CultureInfo.CurrentCulture, out discounted_amt))
+            {
+                // If discounted amount isn't set yet, compute from price
+                if (!double.TryParse(pricetxtbox.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out double price))
+                {
+                    MessageBox.Show("Please select an item first.");
+                    return;
+                }
+                discounted_amt = qty * price - discount_amt;
+            }
+
+            if (!double.TryParse(cash_renderedtxtbox.Text, NumberStyles.Number, CultureInfo.CurrentCulture, out double cash_rendered))
+            {
+                MessageBox.Show("Please enter a valid cash amount.");
+                cash_renderedtxtbox.Focus();
+                return;
+            }
 
             int qty_total = 0;
             double discount_totalgiven = 0, discounted_total = 0;
 
-
-            // Codes to accumulate the value of the quantity, discount given, and discounted amount from one transaction to another
             qty_total += qty;
             discount_totalgiven += discount_amt;
             discounted_total += discounted_amt;
-            change = cash_rendered - discounted_amt;
+            double change = cash_rendered - discounted_amt;
 
-            // Convert string data to numeric data and place it  as value of the variable
             qty_totalbox.Text = qty_total.ToString();
             discount_totalbox.Text = discount_totalgiven.ToString("n");
             discounted_totalbox.Text = discounted_total.ToString("n");
             changetxtbox.Text = change.ToString("n");
             cash_renderedtxtbox.Text = cash_rendered.ToString("n");
-
         }
 
         private void newBtn_Click(object sender, EventArgs e)
@@ -333,9 +351,6 @@ namespace LESSON_1
             discounted_txtbox.Clear();
             cash_renderedtxtbox.Clear();
             changetxtbox.Clear();
-            qty_totalbox.Clear();
-            discount_totalbox.Clear();
-            discounted_totalbox.Clear();
 
             // Re-enable and clear discount selection
             seniorCtznRdBtn.Enabled = true;
@@ -343,6 +358,7 @@ namespace LESSON_1
             employeeDiscRdBtn.Enabled = true;
             noDiscRdBtn.Enabled = true;
 
+            // Uncheck without triggering calculations (handlers now early-return when unchecked)
             seniorCtznRdBtn.Checked = false;
             withDiscCardRdBtn.Checked = false;
             employeeDiscRdBtn.Checked = false;

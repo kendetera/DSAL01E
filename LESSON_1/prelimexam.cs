@@ -176,18 +176,31 @@ namespace LESSON_1
                 sssContrib = 5280.00;
             }
 
-            if (grossIncome <= 250000)
+           if (grossIncome < (250000 / 24))
+            {
                 incomeTaxContrib = 0.00;
-            else if (grossIncome > 250000 && grossIncome <= 400000)
-                incomeTaxContrib = (grossIncome - 250000) * 0.15;
-            else if (grossIncome > 400000 && grossIncome <= 800000)
-                incomeTaxContrib = 22500 + ((grossIncome - 400000) * 0.20);
-            else if (grossIncome > 800000 && grossIncome <= 2000000)
-                incomeTaxContrib = 102500 + ((grossIncome - 800000) * 0.25);
-            else if (grossIncome > 2000000 && grossIncome <= 8000000)
-                incomeTaxContrib = 402500 + ((grossIncome - 2000000) * 0.30);
+            }
+           else if (grossIncome >= (250000 / 24) && grossIncome <= (400000 / 24))
+            {
+                incomeTaxContrib = ((((grossIncome * 24) - 250000) * 0.15) / 24);
+            }
+           else if (grossIncome >= (400000 / 24) && grossIncome <= (800000 / 24))
+            {
+                incomeTaxContrib = ((((grossIncome * 24) - 400000) * 0.20) + 22500) / 24;
+            }
+            else if (grossIncome >= (800000 / 24) && grossIncome <= (2000000 / 24))
+            {
+                 incomeTaxContrib = ((((grossIncome * 24) - 800000) * 0.25) + 102500) / 24;
+            }
+           else if (grossIncome >= (2000000 / 24) && grossIncome <= (8000000 / 24))
+            {
+                incomeTaxContrib = ((((grossIncome * 24) - 2000000) * 0.30) + 402500) / 24;
+            }
             else
-                incomeTaxContrib = 2202500 + ((grossIncome - 8000000) * 0.35);
+            {
+                incomeTaxContrib = ((((grossIncome * 24) - 8000000) * 0.35) + 2202500) / 24;
+            }
+
 
             if (grossIncome <= 10000)
                 philhealthContrib = grossIncome * 0.05;
