@@ -19,9 +19,7 @@ namespace LESSON_1
 
         private void xYZPOSIncToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Activity1 newMDIChild = new Activity1();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
+            
         }
 
         private void xYZPOSOrderingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -68,6 +66,13 @@ namespace LESSON_1
         private void userAccountPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form1 newMDIChild = new Form1();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void xYZPOSIncToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Activity1 newMDIChild = new Activity1();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }

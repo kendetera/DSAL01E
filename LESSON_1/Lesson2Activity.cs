@@ -121,15 +121,13 @@ namespace LESSON_1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double totalTuitionFee, totalMiscFee, totalTuitionAndFee, ciscoLabFee, examBookletFee, comLabFee;
+            double.TryParse(ciscoLabFeeTxtBox.Text, out double ciscoLabFee);
+            double.TryParse(examBookletFeeTxtBox.Text, out double examBookletFee);
+            double.TryParse(comLabTxtBox.Text, out double comLabFee);
 
-            ciscoLabFee = Convert.ToDouble(examBookletFeeTxtBox.Text);
-            examBookletFee = Convert.ToDouble(examBookletFeeTxtBox.Text);
-            comLabFee = Convert.ToDouble(comLabTxtBox.Text);
-
-            totalTuitionFee = totalUnits * 1700;
-            totalMiscFee = examBookletFee + ciscoLabFee + comLabFee;
-            totalTuitionAndFee = totalTuitionFee + totalMiscFee;
+            double totalTuitionFee = totalUnits * 1700;
+            double totalMiscFee = examBookletFee + ciscoLabFee + comLabFee;
+            double totalTuitionAndFee = totalTuitionFee + totalMiscFee;
 
             totalTuitionFeeTxtBox.Text = totalTuitionFee.ToString("n");
             totalMiscFeeTxtBox.Text = totalMiscFee.ToString("n");

@@ -920,7 +920,7 @@ namespace LESSON_1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            // No-op. Initialization is already handled in the constructor.
         }
 
         #endregion

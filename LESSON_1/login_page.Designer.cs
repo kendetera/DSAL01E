@@ -70,6 +70,7 @@
             // 
             passwordTxtBox.Location = new Point(410, 321);
             passwordTxtBox.Name = "passwordTxtBox";
+            passwordTxtBox.PasswordChar = '*';
             passwordTxtBox.Size = new Size(248, 23);
             passwordTxtBox.TabIndex = 3;
             // 

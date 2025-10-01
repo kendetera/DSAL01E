@@ -62,7 +62,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { pOSCashierToolStripMenuItem, pOSAdministatorToolStripMenuItem, userAccountToolStripMenuItem, payrollToolStripMenuItem, employeeInformationToolStripMenuItem, reportsToolStripMenuItem, windowToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1446, 24);
+            menuStrip1.Size = new Size(1904, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -78,6 +78,7 @@
             xYZPOSIncToolStripMenuItem.Name = "xYZPOSIncToolStripMenuItem";
             xYZPOSIncToolStripMenuItem.Size = new Size(180, 22);
             xYZPOSIncToolStripMenuItem.Text = "POS Inc.";
+            xYZPOSIncToolStripMenuItem.Click += xYZPOSIncToolStripMenuItem_Click_1;
             // 
             // xYZPOSOrderingToolStripMenuItem
             // 
@@ -110,13 +111,13 @@
             // xYZPOSIncToolStripMenuItem1
             // 
             xYZPOSIncToolStripMenuItem1.Name = "xYZPOSIncToolStripMenuItem1";
-            xYZPOSIncToolStripMenuItem1.Size = new Size(180, 22);
+            xYZPOSIncToolStripMenuItem1.Size = new Size(146, 22);
             xYZPOSIncToolStripMenuItem1.Text = "POS Inc.";
             // 
             // xYZPOSOrderingToolStripMenuItem1
             // 
             xYZPOSOrderingToolStripMenuItem1.Name = "xYZPOSOrderingToolStripMenuItem1";
-            xYZPOSOrderingToolStripMenuItem1.Size = new Size(180, 22);
+            xYZPOSOrderingToolStripMenuItem1.Size = new Size(146, 22);
             xYZPOSOrderingToolStripMenuItem1.Text = "POS Ordering";
             // 
             // userAccountToolStripMenuItem
@@ -129,7 +130,7 @@
             // userAccountPageToolStripMenuItem
             // 
             userAccountPageToolStripMenuItem.Name = "userAccountPageToolStripMenuItem";
-            userAccountPageToolStripMenuItem.Size = new Size(180, 22);
+            userAccountPageToolStripMenuItem.Size = new Size(174, 22);
             userAccountPageToolStripMenuItem.Text = "User Account Page";
             userAccountPageToolStripMenuItem.Click += userAccountPageToolStripMenuItem_Click;
             // 
@@ -207,21 +208,21 @@
             // tileVerticalToolStripMenuItem
             // 
             tileVerticalToolStripMenuItem.Name = "tileVerticalToolStripMenuItem";
-            tileVerticalToolStripMenuItem.Size = new Size(180, 22);
+            tileVerticalToolStripMenuItem.Size = new Size(151, 22);
             tileVerticalToolStripMenuItem.Text = "Tile Vertical";
             tileVerticalToolStripMenuItem.Click += tileVerticalToolStripMenuItem_Click;
             // 
             // tileHorizontalToolStripMenuItem
             // 
             tileHorizontalToolStripMenuItem.Name = "tileHorizontalToolStripMenuItem";
-            tileHorizontalToolStripMenuItem.Size = new Size(180, 22);
+            tileHorizontalToolStripMenuItem.Size = new Size(151, 22);
             tileHorizontalToolStripMenuItem.Text = "Tile Horizontal";
             tileHorizontalToolStripMenuItem.Click += tileHorizontalToolStripMenuItem_Click;
             // 
             // cascadeToolStripMenuItem
             // 
             cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
-            cascadeToolStripMenuItem.Size = new Size(180, 22);
+            cascadeToolStripMenuItem.Size = new Size(151, 22);
             cascadeToolStripMenuItem.Text = "Cascade";
             cascadeToolStripMenuItem.Click += cascadeToolStripMenuItem_Click;
             // 
@@ -229,7 +230,7 @@
             // 
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1446, 25);
+            toolStrip1.Size = new Size(1904, 25);
             toolStrip1.TabIndex = 1;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -237,9 +238,10 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1446, 565);
+            ClientSize = new Size(1904, 1041);
             Controls.Add(toolStrip1);
             Controls.Add(menuStrip1);
+            IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
             Text = "MainForm";
