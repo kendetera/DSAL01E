@@ -13,8 +13,10 @@ namespace LESSON_1
 {
     public partial class payroll_class : Form
     {
-        Variables1 variables = new Variables1();
+        // Use the provided variable holder throughout
+        payroll_variable variables = new payroll_variable();
 
+        // Keep all functions intact (encapsulated here)
         private readonly PayrollCalculator _calc = new PayrollCalculator();
 
         public payroll_class()
@@ -32,7 +34,8 @@ namespace LESSON_1
             cancelBtn.Click += cancelBtn_Click;
             exitBtn.Click += exitBtn_Click;
 
-            printPayslipBtn.Click += printPayslipBtn_Click; // show details in list box
+            printPayslipBtn.Click += printPayslipBtn_Click; // show details in payslipListBox
+            browseBtn.Click += browseBtn_Click;
         }
 
         private void DisableComputedBoxes()
@@ -76,67 +79,82 @@ namespace LESSON_1
 
         private string Format(double value) => value.ToString("N2", CultureInfo.InvariantCulture);
 
+        // Sync form values into variables (inputs and other-deduction fields)
+        private void SyncVariablesFromForm()
+        {
+            variables.biRate = ReadNumber(biRateTxtBox);
+            variables.biHours = ReadNumber(biHoursTxtBox);
+
+            variables.hiRate = ReadNumber(hiRateTxtBox);
+            variables.hiHours = ReadNumber(hiHoursTxtBox);
+
+            variables.oiRate = ReadNumber(oiRateTxtBox);
+            variables.oiHours = ReadNumber(oiHoursTxtBox);
+
+            variables.sssLoan = ReadNumber(sssLoanTxtBox);
+            variables.pagibigLoan = ReadNumber(pagibigLoanTxtBox);
+            variables.facultyDeposit = ReadNumber(facultyDepositTxtBox);
+            variables.facultyLoan = ReadNumber(facultyLoanTxtBox);
+            variables.salaryLoan = ReadNumber(salaryLoanTxtBox);
+            variables.otherLoans = ReadNumber(otherLoansTxtBox);
+        }
+
+        // Push computed variables back to the form outputs
+        private void SyncFormFromVariables()
+        {
+            biIncomeTxtBox.Text = Format(variables.biIncome);
+            hiIncomeTxtBox.Text = Format(variables.HiIncome);
+            oiIncomeTxtBox.Text = Format(variables.OiIncome);
+            grossIncomeTxtBox.Text = Format(variables.gross);
+
+            sssContribTxtBox.Text = Format(variables.sss);
+            philhealthContribTxtBox.Text = Format(variables.philhealth);
+            pagibigContribTxtBox.Text = Format(variables.pagibig);
+            incomeTaxContribTxtBox.Text = Format(variables.tax);
+
+            totalDeductionsTxtBox.Text = Format(variables.totalDeductions);
+            netIncomeTxtBox.Text = Format(variables.net);
+        }
+
         // ---------------- Event Handlers ----------------
         private void calculateBtn_Click(object? sender, EventArgs e)
         {
-            // Read inputs for basic, honorarium, other income
-            double biRate = ReadNumber(biRateTxtBox);
-            double biHours = ReadNumber(biHoursTxtBox);
-            double hiRate = ReadNumber(hiRateTxtBox);
-            double hiHours = ReadNumber(hiHoursTxtBox);
-            double oiRate = ReadNumber(oiRateTxtBox);
-            double oiHours = ReadNumber(oiHoursTxtBox);
+            // 1) Capture inputs
+            SyncVariablesFromForm();
 
-            // Compute incomes
-            double biIncome = _calc.ComputeIncome(biRate, biHours);
-            double hiIncome = _calc.ComputeIncome(hiRate, hiHours);
-            double oiIncome = _calc.ComputeIncome(oiRate, oiHours);
+            // 2) Compute incomes
+            variables.biIncome = _calc.ComputeIncome(variables.biRate, variables.biHours);
+            variables.HiIncome = _calc.ComputeIncome(variables.hiRate, variables.hiHours);
+            variables.OiIncome = _calc.ComputeIncome(variables.oiRate, variables.oiHours);
 
-            // Gross
-            double gross = _calc.ComputeGross(biIncome, hiIncome, oiIncome);
+            // 3) Gross
+            variables.gross = _calc.ComputeGross(variables.biIncome, variables.HiIncome, variables.OiIncome);
 
-            // Regular deductions
-            double sss = _calc.ComputeSSS(gross);
-            double pagibig = _calc.ComputePagibig();
-            double philhealth = _calc.ComputePhilhealth(gross);
-            double tax = _calc.ComputeIncomeTax(gross);
+            // 4) Regular deductions
+            variables.sss = _calc.ComputeSSS(variables.gross);
+            variables.pagibig = _calc.ComputePagibig();
+            variables.philhealth = _calc.ComputePhilhealth(variables.gross);
+            variables.tax = _calc.ComputeIncomeTax(variables.gross);
 
-            // Other deductions
-            double sssLoan = ReadNumber(sssLoanTxtBox);
-            double pagibigLoan = ReadNumber(pagibigLoanTxtBox);
-            double facultyDeposit = ReadNumber(facultyDepositTxtBox);
-            double facultyLoan = ReadNumber(facultyLoanTxtBox);
-            double salaryLoan = ReadNumber(salaryLoanTxtBox);
-            double otherLoans = ReadNumber(otherLoansTxtBox);
+            // 5) Totals
+            variables.regularDeductions = _calc.ComputeTotalDeductionsRegular(variables.sss, variables.pagibig, variables.philhealth, variables.tax);
+            variables.otherDeductions = _calc.ComputeOtherDeductions(
+                variables.sssLoan, variables.pagibigLoan, variables.facultyDeposit,
+                variables.facultyLoan, variables.salaryLoan, variables.otherLoans);
+            variables.totalDeductions = variables.regularDeductions + variables.otherDeductions;
 
-            double regularDeductions = _calc.ComputeTotalDeductionsRegular(sss, pagibig, philhealth, tax);
-            double otherDeductions = _calc.ComputeOtherDeductions(sssLoan, pagibigLoan, facultyDeposit, facultyLoan, salaryLoan, otherLoans);
-            double totalDeductions = regularDeductions + otherDeductions;
+            // 6) Net
+            variables.net = _calc.ComputeNet(variables.gross, variables.totalDeductions);
 
-            // Net
-            double net = _calc.ComputeNet(gross, totalDeductions);
-
-            // Show incomes
-            biIncomeTxtBox.Text = Format(biIncome);
-            hiIncomeTxtBox.Text = Format(hiIncome);
-            oiIncomeTxtBox.Text = Format(oiIncome);
-            grossIncomeTxtBox.Text = Format(gross);
-
-            // Show regular deductions
-            sssContribTxtBox.Text = Format(sss);
-            pagibigContribTxtBox.Text = Format(pagibig);
-            philhealthContribTxtBox.Text = Format(philhealth);
-            incomeTaxContribTxtBox.Text = Format(tax);
-
-            // Show totals
-            totalDeductionsTxtBox.Text = Format(totalDeductions);
-            netIncomeTxtBox.Text = Format(net);
+            // 7) Display
+            SyncFormFromVariables();
         }
 
         private void newBtn_Click(object? sender, EventArgs e)
         {
             ClearAllTextBoxes(this);
             biRateTxtBox.Focus();
+            variables = new payroll_variable(); // reset in-memory values
         }
 
         private void cancelBtn_Click(object? sender, EventArgs e)
@@ -144,6 +162,7 @@ namespace LESSON_1
             // Treat cancel as reset for now
             ClearAllTextBoxes(this);
             biRateTxtBox.Focus();
+            variables = new payroll_variable(); // reset in-memory values
         }
 
         private void exitBtn_Click(object? sender, EventArgs e)
@@ -153,11 +172,41 @@ namespace LESSON_1
 
         private void printPayslipBtn_Click(object sender, EventArgs e)
         {
-            // Local numeric formatter using the form helpers
-            string F(TextBox tb) => Format(ReadNumber(tb));
+            // Ensure inputs are in variables and compute if not yet done
+            SyncVariablesFromForm();
+
+            bool needsCompute =
+                variables.gross <= 0 &&
+                (variables.biRate != 0 || variables.hiRate != 0 || variables.oiRate != 0) &&
+                (variables.biHours != 0 || variables.hiHours != 0 || variables.oiHours != 0);
+
+            if (needsCompute)
+            {
+                variables.biIncome = _calc.ComputeIncome(variables.biRate, variables.biHours);
+                variables.HiIncome = _calc.ComputeIncome(variables.hiRate, variables.hiHours);
+                variables.OiIncome = _calc.ComputeIncome(variables.oiRate, variables.oiHours);
+                variables.gross = _calc.ComputeGross(variables.biIncome, variables.HiIncome, variables.OiIncome);
+
+                variables.sss = _calc.ComputeSSS(variables.gross);
+                variables.pagibig = _calc.ComputePagibig();
+                variables.philhealth = _calc.ComputePhilhealth(variables.gross);
+                variables.tax = _calc.ComputeIncomeTax(variables.gross);
+
+                variables.regularDeductions = _calc.ComputeTotalDeductionsRegular(variables.sss, variables.pagibig, variables.philhealth, variables.tax);
+                variables.otherDeductions = _calc.ComputeOtherDeductions(
+                    variables.sssLoan, variables.pagibigLoan, variables.facultyDeposit,
+                    variables.facultyLoan, variables.salaryLoan, variables.otherLoans);
+                variables.totalDeductions = variables.regularDeductions + variables.otherDeductions;
+                variables.net = _calc.ComputeNet(variables.gross, variables.totalDeductions);
+
+                SyncFormFromVariables();
+            }
+
+            string F(double v) => v.ToString("N2", CultureInfo.InvariantCulture);
             string JoinName(params string[] parts) =>
                 string.Join(" ", parts.Where(s => !string.IsNullOrWhiteSpace(s)));
 
+            // Identity fields still sourced from the text boxes
             var name = JoinName(firstNameTxtBox.Text, middleNameTxtBox.Text, surnameTxtBox.Text);
             var payDate = payDatePicker.Value.ToString("yyyy-MM-dd");
 
@@ -177,31 +226,31 @@ namespace LESSON_1
                 payslipListBox.Items.Add("");
 
                 payslipListBox.Items.Add("--- Income ---");
-                payslipListBox.Items.Add($"Basic     Rate/Hour: {biRateTxtBox.Text} | Hours: {biHoursTxtBox.Text} | Income: {F(biIncomeTxtBox)}");
-                payslipListBox.Items.Add($"Honorarium Rate/Hour: {hiRateTxtBox.Text} | Hours: {hiHoursTxtBox.Text} | Income: {F(hiIncomeTxtBox)}");
-                payslipListBox.Items.Add($"Other     Rate/Hour: {oiRateTxtBox.Text} | Hours: {oiHoursTxtBox.Text} | Income: {F(oiIncomeTxtBox)}");
-                payslipListBox.Items.Add($"GROSS INCOME: {F(grossIncomeTxtBox)}");
+                payslipListBox.Items.Add($"Basic      Rate/Hour: {F(variables.biRate)} | Hours: {F(variables.biHours)} | Income: {F(variables.biIncome)}");
+                payslipListBox.Items.Add($"Honorarium Rate/Hour: {F(variables.hiRate)} | Hours: {F(variables.hiHours)} | Income: {F(variables.HiIncome)}");
+                payslipListBox.Items.Add($"Other      Rate/Hour: {F(variables.oiRate)} | Hours: {F(variables.oiHours)} | Income: {F(variables.OiIncome)}");
+                payslipListBox.Items.Add($"GROSS INCOME: {F(variables.gross)}");
                 payslipListBox.Items.Add("");
 
                 payslipListBox.Items.Add("--- Regular Deductions ---");
-                payslipListBox.Items.Add($"SSS        : {F(sssContribTxtBox)}");
-                payslipListBox.Items.Add($"PhilHealth : {F(philhealthContribTxtBox)}");
-                payslipListBox.Items.Add($"Pag-IBIG   : {F(pagibigContribTxtBox)}");
-                payslipListBox.Items.Add($"Income Tax : {F(incomeTaxContribTxtBox)}");
-                payslipListBox.Items.Add("");
+                payslipListBox.Items.Add($"SSS        : {F(variables.sss)}");
+                payslipListBox.Items.Add($"PhilHealth : {F(variables.philhealth)}");
+                payslipListBox.Items.Add($"Pag-IBIG   : {F(variables.pagibig)}");
+                payslipListBox.Items.Add($"Income Tax : {F(variables.tax)}");
+                payslipListBox.Items.Add ("");
 
                 payslipListBox.Items.Add("--- Other Deductions ---");
-                payslipListBox.Items.Add($"SSS Loan           : {F(sssLoanTxtBox)}");
-                payslipListBox.Items.Add($"Pag-IBIG Loan      : {F(pagibigLoanTxtBox)}");
-                payslipListBox.Items.Add($"Faculty Deposit    : {F(facultyDepositTxtBox)}");
-                payslipListBox.Items.Add($"Faculty Savings L. : {F(facultyLoanTxtBox)}");
-                payslipListBox.Items.Add($"Salary Loan        : {F(salaryLoanTxtBox)}");
-                payslipListBox.Items.Add($"Other Loans        : {F(otherLoansTxtBox)}");
-                payslipListBox.Items.Add("");
+                payslipListBox.Items.Add($"SSS Loan           : {F(variables.sssLoan)}");
+                payslipListBox.Items.Add($"Pag-IBIG Loan      : {F(variables.pagibigLoan)}");
+                payslipListBox.Items.Add($"Faculty Deposit    : {F(variables.facultyDeposit)}");
+                payslipListBox.Items.Add($"Faculty Savings L. : {F(variables.facultyLoan)}");
+                payslipListBox.Items.Add($"Salary Loan        : {F(variables.salaryLoan)}");
+                payslipListBox.Items.Add($"Other Loans        : {F(variables.otherLoans)}");
+                payslipListBox.Items.Add ("");
 
-                payslipListBox.Items.Add($"GROSS INCOME: {F(grossIncomeTxtBox)}");
-                payslipListBox.Items.Add($"TOTAL DEDUCTIONS: {F(totalDeductionsTxtBox)}");
-                payslipListBox.Items.Add($"NET INCOME      : {F(netIncomeTxtBox)}");
+                payslipListBox.Items.Add($"GROSS INCOME: {F(variables.gross)}");
+                payslipListBox.Items.Add($"TOTAL DEDUCTIONS: {F(variables.totalDeductions)}");
+                payslipListBox.Items.Add($"NET INCOME      : {F(variables.net)}");
             }
             finally
             {
@@ -209,27 +258,24 @@ namespace LESSON_1
             }
         }
 
-        private void browseBtn_Click(object sender, EventArgs e)
+        private void browseBtn_Click(object? sender, EventArgs e)
         {
-            // Let the user pick an image file.
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            using OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                openFileDialog.Title = "Select an Image";
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-                openFileDialog.Multiselect = false;
-
-                // If a file was chosen, load it into the PictureBox.
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    Image selectedImage = Image.FromFile(openFileDialog.FileName);
-                    pictureBox1.Image = selectedImage;
-                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage; // Fit image to box.
-                }
+                Title = "Select an Image",
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif",
+                Multiselect = false
+            };
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Image selectedImage = Image.FromFile(openFileDialog.FileName);
+                pictureBox1.Image = selectedImage;
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
     }
 
-
+    // Keep the original functions/logic intact
     public sealed class PayrollCalculator
     {
         public double ComputeIncome(double rate, double hours) => rate * hours;
