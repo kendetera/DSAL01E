@@ -247,7 +247,7 @@ namespace LESSON_1
                 payslipListBox.Items.Add($"Salary Loan        : {F(variables.salaryLoan)}");
                 payslipListBox.Items.Add($"Other Loans        : {F(variables.otherLoans)}");
                 payslipListBox.Items.Add ("");
-
+                
                 payslipListBox.Items.Add($"GROSS INCOME: {F(variables.gross)}");
                 payslipListBox.Items.Add($"TOTAL DEDUCTIONS: {F(variables.totalDeductions)}");
                 payslipListBox.Items.Add($"NET INCOME      : {F(variables.net)}");
