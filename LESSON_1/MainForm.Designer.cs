@@ -111,14 +111,15 @@
             // xYZPOSIncToolStripMenuItem1
             // 
             xYZPOSIncToolStripMenuItem1.Name = "xYZPOSIncToolStripMenuItem1";
-            xYZPOSIncToolStripMenuItem1.Size = new Size(146, 22);
+            xYZPOSIncToolStripMenuItem1.Size = new Size(180, 22);
             xYZPOSIncToolStripMenuItem1.Text = "POS Inc.";
             // 
             // xYZPOSOrderingToolStripMenuItem1
             // 
             xYZPOSOrderingToolStripMenuItem1.Name = "xYZPOSOrderingToolStripMenuItem1";
-            xYZPOSOrderingToolStripMenuItem1.Size = new Size(146, 22);
+            xYZPOSOrderingToolStripMenuItem1.Size = new Size(180, 22);
             xYZPOSOrderingToolStripMenuItem1.Text = "POS Ordering";
+            xYZPOSOrderingToolStripMenuItem1.Click += xYZPOSOrderingToolStripMenuItem1_Click;
             // 
             // userAccountToolStripMenuItem
             // 
@@ -130,7 +131,7 @@
             // userAccountPageToolStripMenuItem
             // 
             userAccountPageToolStripMenuItem.Name = "userAccountPageToolStripMenuItem";
-            userAccountPageToolStripMenuItem.Size = new Size(174, 22);
+            userAccountPageToolStripMenuItem.Size = new Size(180, 22);
             userAccountPageToolStripMenuItem.Text = "User Account Page";
             userAccountPageToolStripMenuItem.Click += userAccountPageToolStripMenuItem_Click;
             // 

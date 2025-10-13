@@ -673,6 +673,7 @@
             quantitytxtbox.Name = "quantitytxtbox";
             quantitytxtbox.Size = new Size(138, 23);
             quantitytxtbox.TabIndex = 35;
+            quantitytxtbox.TextChanged += quantitytxtbox_TextChanged;
             // 
             // label20
             // 
