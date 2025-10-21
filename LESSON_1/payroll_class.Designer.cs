@@ -120,6 +120,7 @@
             button4.TabIndex = 248;
             button4.Text = "PREVIEW PAYSLIP DETAILS";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // printPayslipBtn
             // 

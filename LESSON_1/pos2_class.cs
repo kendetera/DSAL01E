@@ -77,13 +77,7 @@ namespace LESSON_1
             priceTxtBox.Text = price;
         }
 
-        private void getPriceDiscountAmount()
-        {
-            priceTxtBox.Text = (price_discountamount_value.GetPriceItem());
-            discAmtTxtBox.Text = (price_discountamount_value.GetDiscountAmount());
-            variables1.price = Convert.ToDouble(priceTxtBox.Text);
-        }
-
+        
         private void qtytextbox_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(qtyTxtBox.Text) ||

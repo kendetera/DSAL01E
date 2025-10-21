@@ -13,8 +13,8 @@ namespace LESSON_1
 {
     public partial class pos1_class : Form
     {
-        Price_Item_Value price_item_value = new Price_Item_Value();
-        Variables1 variables1 = new Variables1();
+        // Centralized POS logic/state in a class while retaining all existing functions and logic.
+        private PosEngine _engine = new PosEngine();
 
         private int qty;
         private double price;
@@ -57,8 +57,8 @@ namespace LESSON_1
 
         private void GetPriceItemValue()
         {
-            itemnametxtbox.Text = price_item_value.GetItemName();
-            pricetxtbox.Text = price_item_value.GetPrice();
+            itemnametxtbox.Text = _engine.PriceItemValue.GetItemName();
+            pricetxtbox.Text = _engine.PriceItemValue.GetPrice();
         }
 
         private void pos1_class_Load(object sender, EventArgs e)
@@ -68,76 +68,78 @@ namespace LESSON_1
 
         private void ComputationFormulaAndDisplayData()
         {
-            variables1.discounted_amt = (variables1.qty * variables1.price) - variables1.discount_amt;
-            discount_txtbox.Text = variables1.discount_amt.ToString("n");
-            discounted_txtbox.Text = variables1.discounted_amt.ToString("n");
+            // Keep exact computation formula and display logic.
+            var m = _engine.Model;
+            m.discounted_amt = (m.qty * m.price) - m.discount_amt;
+            discount_txtbox.Text = m.discount_amt.ToString("n");
+            discounted_txtbox.Text = m.discounted_amt.ToString("n");
         }
-
 
         private void calculateBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                variables1.qty = Convert.ToInt32(quantitytxtbox.Text);
-                variables1.discount_amt = Convert.ToDouble(discount_txtbox.Text);
-                variables1.discounted_amt = Convert.ToDouble(discounted_txtbox.Text);
-                variables1.cash_rendered = Convert.ToDouble(cash_renderedtxtbox.Text);
+                var m = _engine.Model;
 
-                variables1.qty_total += variables1.qty;
-                variables1.discount_totalgiven += variables1.discount_amt;
-                variables1.discounted_total += variables1.discounted_amt;
-                variables1.change = variables1.cash_rendered - variables1.discounted_amt;
+                m.qty = Convert.ToInt32(quantitytxtbox.Text);
+                m.discount_amt = Convert.ToDouble(discount_txtbox.Text);
+                m.discounted_amt = Convert.ToDouble(discounted_txtbox.Text);
+                m.cash_rendered = Convert.ToDouble(cash_renderedtxtbox.Text);
 
-                qty_totalbox.Text = variables1.qty_total.ToString("n");
-                discount_totalbox.Text = variables1.discount_totalgiven.ToString("n");
-                discounted_totalbox.Text = variables1.discounted_total.ToString("n");
-                changetxtbox.Text = variables1.change.ToString("n");
-                cash_renderedtxtbox.Text = variables1.cash_rendered.ToString("n");
+                m.qty_total += m.qty;
+                m.discount_totalgiven += m.discount_amt;
+                m.discounted_total += m.discounted_amt;
+                m.change = m.cash_rendered - m.discounted_amt;
 
-
+                qty_totalbox.Text = m.qty_total.ToString("n");
+                discount_totalbox.Text = m.discount_totalgiven.ToString("n");
+                discounted_totalbox.Text = m.discounted_total.ToString("n");
+                changetxtbox.Text = m.change.ToString("n");
+                cash_renderedtxtbox.Text = m.cash_rendered.ToString("n");
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show("Please input a valid data. " + ex.Message);
             }
-
         }
+
         private void quantity_price_Convert()
         {
             qty = Convert.ToInt32(quantitytxtbox.Text);
             price = Convert.ToDouble(pricetxtbox.Text);
 
             // Keep the shared model in sync (this is what your formulas use)
-            variables1.qty = qty;
-            variables1.price = price;
+            _engine.Model.qty = qty;
+            _engine.Model.price = price;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            price_item_value.SetPriceItemValue("Breakfast Hotdog", " 95.30");
+            _engine.PriceItemValue.SetPriceItemValue("Breakfast Hotdog", " 95.30");
             GetPriceItemValue();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            price_item_value.SetPriceItemValue("Burger Steak", " 120.50");
+            _engine.PriceItemValue.SetPriceItemValue("Burger Steak", " 120.50");
             GetPriceItemValue();
         }
+
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            price_item_value.SetPriceItemValue("Pork Chop", " 150.75");
+            _engine.PriceItemValue.SetPriceItemValue("Pork Chop", " 150.75");
             GetPriceItemValue();
         }
+
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            price_item_value.SetPriceItemValue("Chicken BBQ", " 180.25");
+            _engine.PriceItemValue.SetPriceItemValue("Chicken BBQ", " 180.25");
             GetPriceItemValue();
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            price_item_value.SetPriceItemValue("Spaghetti", " 110.00");
+            _engine.PriceItemValue.SetPriceItemValue("Spaghetti", " 110.00");
             GetPriceItemValue();
         }
 
@@ -149,7 +151,8 @@ namespace LESSON_1
                 try
                 {
                     quantity_price_Convert();
-                    variables1.discount_amt = (variables1.qty * variables1.price) * 0.30;
+                    var m = _engine.Model;
+                    m.discount_amt = (m.qty * m.price) * 0.30;
                     ComputationFormulaAndDisplayData();
                     withDiscCardRdBtn.Enabled = false;
                     noDiscRdBtn.Enabled = false;
@@ -171,7 +174,8 @@ namespace LESSON_1
             try
             {
                 quantity_price_Convert();
-                variables1.discount_amt = (variables1.qty * variables1.price) * 0.10;
+                var m = _engine.Model;
+                m.discount_amt = (m.qty * m.price) * 0.10;
                 ComputationFormulaAndDisplayData();
                 seniorCtznRdBtn.Enabled = false;
                 noDiscRdBtn.Enabled = false;
@@ -188,7 +192,8 @@ namespace LESSON_1
             try
             {
                 quantity_price_Convert();
-                variables1.discount_amt = (variables1.qty * variables1.price) * 0.15;
+                var m = _engine.Model;
+                m.discount_amt = (m.qty * m.price) * 0.15;
                 ComputationFormulaAndDisplayData();
                 seniorCtznRdBtn.Enabled = false;
                 noDiscRdBtn.Enabled = false;
@@ -205,7 +210,8 @@ namespace LESSON_1
             try
             {
                 quantity_price_Convert();
-                variables1.discount_amt = (variables1.qty * variables1.price) * 0;
+                var m = _engine.Model;
+                m.discount_amt = (m.qty * m.price) * 0;
                 ComputationFormulaAndDisplayData();
                 seniorCtznRdBtn.Enabled = false;
                 employeeDiscRdBtn.Enabled = false;
@@ -215,7 +221,6 @@ namespace LESSON_1
             {
                 MessageBox.Show("Invalid input: " + ex.Message);
             }
-
         }
 
         private void newBtn_Click(object sender, EventArgs e)
@@ -245,6 +250,13 @@ namespace LESSON_1
         private void exitBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        // Encapsulated POS state and simple operations in a class (used above).
+        private class PosEngine
+        {
+            public Price_Item_Value PriceItemValue { get; } = new Price_Item_Value();
+            public Variables1 Model { get; } = new Variables1();
         }
     }
 }

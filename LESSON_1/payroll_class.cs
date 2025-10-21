@@ -17,7 +17,7 @@ namespace LESSON_1
         payroll_variable variables = new payroll_variable();
 
         // Keep all functions intact (encapsulated here)
-        private readonly PayrollCalculator _calc = new PayrollCalculator();
+        private PayrollCalculator _calc = new PayrollCalculator();
 
         public payroll_class()
         {
@@ -172,35 +172,29 @@ namespace LESSON_1
 
         private void printPayslipBtn_Click(object sender, EventArgs e)
         {
-            // Ensure inputs are in variables and compute if not yet done
-            SyncVariablesFromForm();
 
-            bool needsCompute =
-                variables.gross <= 0 &&
-                (variables.biRate != 0 || variables.hiRate != 0 || variables.oiRate != 0) &&
-                (variables.biHours != 0 || variables.hiHours != 0 || variables.oiHours != 0);
+        }
 
-            if (needsCompute)
+        private void browseBtn_Click(object? sender, EventArgs e)
+        {
+            using OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                variables.biIncome = _calc.ComputeIncome(variables.biRate, variables.biHours);
-                variables.HiIncome = _calc.ComputeIncome(variables.hiRate, variables.hiHours);
-                variables.OiIncome = _calc.ComputeIncome(variables.oiRate, variables.oiHours);
-                variables.gross = _calc.ComputeGross(variables.biIncome, variables.HiIncome, variables.OiIncome);
-
-                variables.sss = _calc.ComputeSSS(variables.gross);
-                variables.pagibig = _calc.ComputePagibig();
-                variables.philhealth = _calc.ComputePhilhealth(variables.gross);
-                variables.tax = _calc.ComputeIncomeTax(variables.gross);
-
-                variables.regularDeductions = _calc.ComputeTotalDeductionsRegular(variables.sss, variables.pagibig, variables.philhealth, variables.tax);
-                variables.otherDeductions = _calc.ComputeOtherDeductions(
-                    variables.sssLoan, variables.pagibigLoan, variables.facultyDeposit,
-                    variables.facultyLoan, variables.salaryLoan, variables.otherLoans);
-                variables.totalDeductions = variables.regularDeductions + variables.otherDeductions;
-                variables.net = _calc.ComputeNet(variables.gross, variables.totalDeductions);
-
-                SyncFormFromVariables();
+                Title = "Select an Image",
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif",
+                Multiselect = false
+            };
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Image selectedImage = Image.FromFile(openFileDialog.FileName);
+                pictureBox1.Image = selectedImage;
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // Ensure inputs are captured and all payroll values are computed using existing logic
+            calculateBtn_Click(sender, e);
 
             string F(double v) => v.ToString("N2", CultureInfo.InvariantCulture);
             string JoinName(params string[] parts) =>
@@ -237,7 +231,7 @@ namespace LESSON_1
                 payslipListBox.Items.Add($"PhilHealth : {F(variables.philhealth)}");
                 payslipListBox.Items.Add($"Pag-IBIG   : {F(variables.pagibig)}");
                 payslipListBox.Items.Add($"Income Tax : {F(variables.tax)}");
-                payslipListBox.Items.Add ("");
+                payslipListBox.Items.Add("");
 
                 payslipListBox.Items.Add("--- Other Deductions ---");
                 payslipListBox.Items.Add($"SSS Loan           : {F(variables.sssLoan)}");
@@ -246,8 +240,8 @@ namespace LESSON_1
                 payslipListBox.Items.Add($"Faculty Savings L. : {F(variables.facultyLoan)}");
                 payslipListBox.Items.Add($"Salary Loan        : {F(variables.salaryLoan)}");
                 payslipListBox.Items.Add($"Other Loans        : {F(variables.otherLoans)}");
-                payslipListBox.Items.Add ("");
-                
+                payslipListBox.Items.Add("");
+
                 payslipListBox.Items.Add($"GROSS INCOME: {F(variables.gross)}");
                 payslipListBox.Items.Add($"TOTAL DEDUCTIONS: {F(variables.totalDeductions)}");
                 payslipListBox.Items.Add($"NET INCOME      : {F(variables.net)}");
@@ -255,22 +249,6 @@ namespace LESSON_1
             finally
             {
                 payslipListBox.EndUpdate();
-            }
-        }
-
-        private void browseBtn_Click(object? sender, EventArgs e)
-        {
-            using OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                Title = "Select an Image",
-                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif",
-                Multiselect = false
-            };
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                Image selectedImage = Image.FromFile(openFileDialog.FileName);
-                pictureBox1.Image = selectedImage;
-                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
     }
