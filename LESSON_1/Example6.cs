@@ -47,7 +47,7 @@ namespace LESSON_1
 
             // Disabling text boxes that display calculated values to prevent user input.
             priceTxtBox.Enabled = false;
-            discAmtTxtBox.Enabled = false;
+            discountAmountTxtbox.Enabled = false;
             discountedAmtTxtBox.Enabled = false;
             totalBillsTxtBox.Enabled = false;
             totalQtyTxtBox.Enabled = false;
@@ -60,7 +60,7 @@ namespace LESSON_1
             int qty;
             price = Convert.ToDouble(priceTxtBox.Text);
             qty = Convert.ToInt32(qtyTxtBox.Text);
-            discountAmount = Convert.ToDouble(discAmtTxtBox.Text);
+            discountAmount = Convert.ToDouble(discountAmountTxtbox.Text);
             discountedAmount = (price * qty) - discountAmount;
             totalQty += qty;
             totalQtyTxtBox.Text += totalQty.ToString();
@@ -94,11 +94,11 @@ namespace LESSON_1
 
             // Display price and discount information for Food Bundle A
             priceTxtBox.Text = "300.00";
-            discAmtTxtBox.Text = "50";
+            discountAmountTxtbox.Text = "50";
             
             price = Convert.ToDouble(priceTxtBox.Text);
             displayListBox.Items.Add(foodARdbtn.Text + "          " + priceTxtBox.Text);
-            displayListBox.Items.Add("Discount: " + discAmtTxtBox.Text);
+            displayListBox.Items.Add("Discount: " + discountAmountTxtbox.Text);
             qtyTxtBox.Text = "0";
             qtyTxtBox.Focus();
         }
@@ -120,11 +120,11 @@ namespace LESSON_1
             A_PalabokChkBox.Checked = false;
 
             priceTxtBox.Text = "250.00";
-            discAmtTxtBox.Text = "30";
+            discountAmountTxtbox.Text = "30";
 
             price = Convert.ToDouble(priceTxtBox.Text);
             displayListBox.Items.Add(foodBRdbtn.Text + "          " + priceTxtBox.Text);
-            displayListBox.Items.Add("Discount: " + discAmtTxtBox.Text);
+            displayListBox.Items.Add("Discount: " + discountAmountTxtbox.Text);
             qtyTxtBox.Text = "0";
             qtyTxtBox.Focus();
         }

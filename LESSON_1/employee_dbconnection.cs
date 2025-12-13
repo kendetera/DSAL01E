@@ -20,7 +20,7 @@ namespace LESSON_1
         public void employee_connString()
         {
             employee_sql_connection = new SqlConnection();
-            employee_connectionString = @"Data Source=KEN\SQLEXPRESS ; Initial Catalog = SampleDatabaseDB ; Trusted_Connection = True";
+            employee_connectionString = @"Data Source=KEN\SQLEXPRESS ; Initial Catalog = POSDB ; Trusted_Connection = True";
             employee_sql_connection = new SqlConnection(employee_connectionString);
             employee_sql_connection.ConnectionString = employee_connectionString;
             employee_sql_connection.Open();

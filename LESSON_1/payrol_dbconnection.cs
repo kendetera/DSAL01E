@@ -20,7 +20,7 @@ namespace LESSON_1
         public void payrol_connString()
         {
             payrol_sql_connection = new SqlConnection();
-            payrol_connectionString = @"Data Source=KEN\SQLEXPRESS ; Initial Catalog = SampleDatabaseDB ; Trusted_Connection = True";
+            payrol_connectionString = @"Data Source=KEN\SQLEXPRESS ; Initial Catalog = POSDB ; Trusted_Connection = True";
             payrol_sql_connection = new SqlConnection(payrol_connectionString);
             payrol_sql_connection.ConnectionString = payrol_connectionString;
             payrol_sql_connection.Open();

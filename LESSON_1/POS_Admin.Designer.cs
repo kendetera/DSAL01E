@@ -823,8 +823,10 @@
             pictureBox5.Location = new Point(1272, 12);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(268, 165);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox5.TabIndex = 129;
             pictureBox5.TabStop = false;
+            pictureBox5.Click += pictureBox5_Click;
             // 
             // priceTxtbox4
             // 
@@ -866,8 +868,10 @@
             pictureBox4.Location = new Point(961, 12);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(268, 165);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 124;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // priceTxtbox3
             // 
@@ -909,8 +913,10 @@
             pictureBox3.Location = new Point(647, 12);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(268, 165);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 119;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // priceTxtbox2
             // 
@@ -952,6 +958,7 @@
             pictureBox2.Location = new Point(342, 12);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(268, 165);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 114;
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
@@ -996,6 +1003,7 @@
             pictureBox1.Location = new Point(35, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(268, 165);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 109;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
@@ -1006,8 +1014,10 @@
             pictureBox6.Location = new Point(35, 250);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(268, 165);
+            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox6.TabIndex = 222;
             pictureBox6.TabStop = false;
+            pictureBox6.Click += pictureBox6_Click;
             // 
             // pictureBox7
             // 
@@ -1015,8 +1025,10 @@
             pictureBox7.Location = new Point(342, 253);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(268, 165);
+            pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox7.TabIndex = 221;
             pictureBox7.TabStop = false;
+            pictureBox7.Click += pictureBox7_Click;
             // 
             // pictureBox8
             // 
@@ -1024,8 +1036,10 @@
             pictureBox8.Location = new Point(647, 250);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(268, 165);
+            pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox8.TabIndex = 220;
             pictureBox8.TabStop = false;
+            pictureBox8.Click += pictureBox8_Click;
             // 
             // pictureBox9
             // 
@@ -1033,8 +1047,10 @@
             pictureBox9.Location = new Point(961, 253);
             pictureBox9.Name = "pictureBox9";
             pictureBox9.Size = new Size(268, 165);
+            pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox9.TabIndex = 219;
             pictureBox9.TabStop = false;
+            pictureBox9.Click += pictureBox9_Click;
             // 
             // pictureBox10
             // 
@@ -1042,8 +1058,10 @@
             pictureBox10.Location = new Point(1272, 253);
             pictureBox10.Name = "pictureBox10";
             pictureBox10.Size = new Size(268, 165);
+            pictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox10.TabIndex = 218;
             pictureBox10.TabStop = false;
+            pictureBox10.Click += pictureBox10_Click;
             // 
             // pictureBox11
             // 
@@ -1051,8 +1069,10 @@
             pictureBox11.Location = new Point(35, 490);
             pictureBox11.Name = "pictureBox11";
             pictureBox11.Size = new Size(268, 165);
+            pictureBox11.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox11.TabIndex = 227;
             pictureBox11.TabStop = false;
+            pictureBox11.Click += pictureBox11_Click;
             // 
             // pictureBox12
             // 
@@ -1060,8 +1080,10 @@
             pictureBox12.Location = new Point(342, 488);
             pictureBox12.Name = "pictureBox12";
             pictureBox12.Size = new Size(268, 165);
+            pictureBox12.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox12.TabIndex = 226;
             pictureBox12.TabStop = false;
+            pictureBox12.Click += pictureBox12_Click;
             // 
             // pictureBox13
             // 
@@ -1069,8 +1091,10 @@
             pictureBox13.Location = new Point(647, 487);
             pictureBox13.Name = "pictureBox13";
             pictureBox13.Size = new Size(268, 165);
+            pictureBox13.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox13.TabIndex = 225;
             pictureBox13.TabStop = false;
+            pictureBox13.Click += pictureBox13_Click;
             // 
             // pictureBox14
             // 
@@ -1078,8 +1102,10 @@
             pictureBox14.Location = new Point(961, 490);
             pictureBox14.Name = "pictureBox14";
             pictureBox14.Size = new Size(268, 165);
+            pictureBox14.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox14.TabIndex = 224;
             pictureBox14.TabStop = false;
+            pictureBox14.Click += pictureBox14_Click;
             // 
             // pictureBox15
             // 
@@ -1087,8 +1113,10 @@
             pictureBox15.Location = new Point(1272, 490);
             pictureBox15.Name = "pictureBox15";
             pictureBox15.Size = new Size(268, 165);
+            pictureBox15.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox15.TabIndex = 223;
             pictureBox15.TabStop = false;
+            pictureBox15.Click += pictureBox15_Click;
             // 
             // pictureBox16
             // 
@@ -1096,8 +1124,10 @@
             pictureBox16.Location = new Point(35, 728);
             pictureBox16.Name = "pictureBox16";
             pictureBox16.Size = new Size(268, 165);
+            pictureBox16.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox16.TabIndex = 232;
             pictureBox16.TabStop = false;
+            pictureBox16.Click += pictureBox16_Click;
             // 
             // pictureBox17
             // 
@@ -1105,8 +1135,10 @@
             pictureBox17.Location = new Point(342, 728);
             pictureBox17.Name = "pictureBox17";
             pictureBox17.Size = new Size(268, 165);
+            pictureBox17.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox17.TabIndex = 231;
             pictureBox17.TabStop = false;
+            pictureBox17.Click += pictureBox17_Click;
             // 
             // pictureBox18
             // 
@@ -1114,8 +1146,10 @@
             pictureBox18.Location = new Point(647, 725);
             pictureBox18.Name = "pictureBox18";
             pictureBox18.Size = new Size(268, 165);
+            pictureBox18.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox18.TabIndex = 230;
             pictureBox18.TabStop = false;
+            pictureBox18.Click += pictureBox18_Click;
             // 
             // pictureBox19
             // 
@@ -1123,8 +1157,10 @@
             pictureBox19.Location = new Point(961, 725);
             pictureBox19.Name = "pictureBox19";
             pictureBox19.Size = new Size(268, 165);
+            pictureBox19.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox19.TabIndex = 229;
             pictureBox19.TabStop = false;
+            pictureBox19.Click += pictureBox19_Click;
             // 
             // pictureBox20
             // 
@@ -1132,8 +1168,10 @@
             pictureBox20.Location = new Point(1272, 725);
             pictureBox20.Name = "pictureBox20";
             pictureBox20.Size = new Size(268, 165);
+            pictureBox20.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox20.TabIndex = 228;
             pictureBox20.TabStop = false;
+            pictureBox20.Click += pictureBox20_Click;
             // 
             // picpathTxtbox1
             // 

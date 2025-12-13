@@ -20,7 +20,7 @@ namespace LESSON_1
         public void login_connString()
         {
             login_sql_connection = new SqlConnection();
-            login_connectionString = @"Data Source=KEN\SQLEXPRESS ; Initial Catalog = SampleDatabaseDB ; Trusted_Connection = True";
+            login_connectionString = @"Data Source=KEN\SQLEXPRESS ; Initial Catalog = POSDB ; Trusted_Connection = True";
             login_sql_connection = new SqlConnection(login_connectionString);
             login_sql_connection.ConnectionString = login_connectionString;
             login_sql_connection.Open();

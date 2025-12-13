@@ -13,7 +13,7 @@ namespace LESSON_1
         public SqlDataAdapter pos_sql_dataadapter;
         public string pos_sql = null;
 
-        public void connString()
+        public void pos_connString()
         {
             pos_connectionString = @"Data Source=KEN\SQLEXPRESS;Initial Catalog=POSDB;Trusted_Connection=True";
             pos_sql_connection = new SqlConnection(pos_connectionString);
