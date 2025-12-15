@@ -106,6 +106,7 @@
             pictureBox1.Location = new Point(1217, 63);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(250, 209);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 52;
             pictureBox1.TabStop = false;
             // 
@@ -134,7 +135,7 @@
             // accountTypeComboBox
             // 
             accountTypeComboBox.FormattingEnabled = true;
-            accountTypeComboBox.Items.AddRange(new object[] { "Administrator", "Accounting Staff" });
+            accountTypeComboBox.Items.AddRange(new object[] { "Administrator", "Accounting Staff", "Cashier1", "Cashier2", "HR Staff", "IT Staff" });
             accountTypeComboBox.Location = new Point(551, 387);
             accountTypeComboBox.Name = "accountTypeComboBox";
             accountTypeComboBox.Size = new Size(307, 23);

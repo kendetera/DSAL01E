@@ -36,19 +36,25 @@
             logoToolStripMenuItem = new ToolStripMenuItem();
             pOSAdministatorToolStripMenuItem = new ToolStripMenuItem();
             xYZPOSIncToolStripMenuItem1 = new ToolStripMenuItem();
-            xYZPOSOrderingToolStripMenuItem1 = new ToolStripMenuItem();
-            userAccountToolStripMenuItem = new ToolStripMenuItem();
-            userAccountPageToolStripMenuItem = new ToolStripMenuItem();
             payrollToolStripMenuItem = new ToolStripMenuItem();
             payrollApplicationToolStripMenuItem = new ToolStripMenuItem();
+            humanResourcesToolStripMenuItem = new ToolStripMenuItem();
+            hRPageToolStripMenuItem = new ToolStripMenuItem();
+            userAccountToolStripMenuItem = new ToolStripMenuItem();
+            userAccountPageToolStripMenuItem = new ToolStripMenuItem();
+            iTAdminToolStripMenuItem = new ToolStripMenuItem();
             employeeInformationToolStripMenuItem = new ToolStripMenuItem();
             employeeRegistrationPageToolStripMenuItem = new ToolStripMenuItem();
             reportsToolStripMenuItem = new ToolStripMenuItem();
             salesReprotsToolStripMenuItem = new ToolStripMenuItem();
-            productReportsToolStripMenuItem = new ToolStripMenuItem();
             employeesReportsToolStripMenuItem = new ToolStripMenuItem();
             payrollReprotsToolStripMenuItem = new ToolStripMenuItem();
             userReportsToolStripMenuItem = new ToolStripMenuItem();
+            otherActivitiesToolStripMenuItem = new ToolStripMenuItem();
+            activity2ToolStripMenuItem = new ToolStripMenuItem();
+            activity3ToolStripMenuItem = new ToolStripMenuItem();
+            pOS2FunctionToolStripMenuItem = new ToolStripMenuItem();
+            pOS2ClassToolStripMenuItem = new ToolStripMenuItem();
             windowToolStripMenuItem = new ToolStripMenuItem();
             tileVerticalToolStripMenuItem = new ToolStripMenuItem();
             tileHorizontalToolStripMenuItem = new ToolStripMenuItem();
@@ -59,7 +65,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { pOSCashierToolStripMenuItem, pOSAdministatorToolStripMenuItem, userAccountToolStripMenuItem, payrollToolStripMenuItem, employeeInformationToolStripMenuItem, reportsToolStripMenuItem, windowToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { pOSCashierToolStripMenuItem, pOSAdministatorToolStripMenuItem, payrollToolStripMenuItem, humanResourcesToolStripMenuItem, userAccountToolStripMenuItem, employeeInformationToolStripMenuItem, reportsToolStripMenuItem, otherActivitiesToolStripMenuItem, windowToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1904, 24);
@@ -70,70 +76,50 @@
             // 
             pOSCashierToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { xYZPOSIncToolStripMenuItem, xYZPOSOrderingToolStripMenuItem, simplePOSToolStripMenuItem, logoToolStripMenuItem });
             pOSCashierToolStripMenuItem.Name = "pOSCashierToolStripMenuItem";
-            pOSCashierToolStripMenuItem.Size = new Size(83, 20);
-            pOSCashierToolStripMenuItem.Text = "POS Cashier";
+            pOSCashierToolStripMenuItem.Size = new Size(41, 20);
+            pOSCashierToolStripMenuItem.Text = "POS";
             // 
             // xYZPOSIncToolStripMenuItem
             // 
             xYZPOSIncToolStripMenuItem.Name = "xYZPOSIncToolStripMenuItem";
-            xYZPOSIncToolStripMenuItem.Size = new Size(180, 22);
+            xYZPOSIncToolStripMenuItem.Size = new Size(146, 22);
             xYZPOSIncToolStripMenuItem.Text = "POS Inc.";
             xYZPOSIncToolStripMenuItem.Click += xYZPOSIncToolStripMenuItem_Click_1;
             // 
             // xYZPOSOrderingToolStripMenuItem
             // 
             xYZPOSOrderingToolStripMenuItem.Name = "xYZPOSOrderingToolStripMenuItem";
-            xYZPOSOrderingToolStripMenuItem.Size = new Size(180, 22);
-            xYZPOSOrderingToolStripMenuItem.Text = "POS Ordeirng";
+            xYZPOSOrderingToolStripMenuItem.Size = new Size(146, 22);
+            xYZPOSOrderingToolStripMenuItem.Text = "POS Ordering";
             xYZPOSOrderingToolStripMenuItem.Click += xYZPOSOrderingToolStripMenuItem_Click;
             // 
             // simplePOSToolStripMenuItem
             // 
             simplePOSToolStripMenuItem.Name = "simplePOSToolStripMenuItem";
-            simplePOSToolStripMenuItem.Size = new Size(180, 22);
-            simplePOSToolStripMenuItem.Text = "Simple POS";
+            simplePOSToolStripMenuItem.Size = new Size(146, 22);
+            simplePOSToolStripMenuItem.Text = "POS Admin";
             simplePOSToolStripMenuItem.Click += simplePOSToolStripMenuItem_Click;
             // 
             // logoToolStripMenuItem
             // 
             logoToolStripMenuItem.Name = "logoToolStripMenuItem";
-            logoToolStripMenuItem.Size = new Size(180, 22);
+            logoToolStripMenuItem.Size = new Size(146, 22);
             logoToolStripMenuItem.Text = "Logout";
             logoToolStripMenuItem.Click += logoToolStripMenuItem_Click;
             // 
             // pOSAdministatorToolStripMenuItem
             // 
-            pOSAdministatorToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { xYZPOSIncToolStripMenuItem1, xYZPOSOrderingToolStripMenuItem1 });
+            pOSAdministatorToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { xYZPOSIncToolStripMenuItem1 });
             pOSAdministatorToolStripMenuItem.Name = "pOSAdministatorToolStripMenuItem";
-            pOSAdministatorToolStripMenuItem.Size = new Size(113, 20);
-            pOSAdministatorToolStripMenuItem.Text = "POS Administator";
+            pOSAdministatorToolStripMenuItem.Size = new Size(52, 20);
+            pOSAdministatorToolStripMenuItem.Text = "Payrol";
             // 
             // xYZPOSIncToolStripMenuItem1
             // 
             xYZPOSIncToolStripMenuItem1.Name = "xYZPOSIncToolStripMenuItem1";
             xYZPOSIncToolStripMenuItem1.Size = new Size(180, 22);
-            xYZPOSIncToolStripMenuItem1.Text = "POS Inc.";
-            // 
-            // xYZPOSOrderingToolStripMenuItem1
-            // 
-            xYZPOSOrderingToolStripMenuItem1.Name = "xYZPOSOrderingToolStripMenuItem1";
-            xYZPOSOrderingToolStripMenuItem1.Size = new Size(180, 22);
-            xYZPOSOrderingToolStripMenuItem1.Text = "POS Ordering";
-            xYZPOSOrderingToolStripMenuItem1.Click += xYZPOSOrderingToolStripMenuItem1_Click;
-            // 
-            // userAccountToolStripMenuItem
-            // 
-            userAccountToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { userAccountPageToolStripMenuItem });
-            userAccountToolStripMenuItem.Name = "userAccountToolStripMenuItem";
-            userAccountToolStripMenuItem.Size = new Size(90, 20);
-            userAccountToolStripMenuItem.Text = "User Account";
-            // 
-            // userAccountPageToolStripMenuItem
-            // 
-            userAccountPageToolStripMenuItem.Name = "userAccountPageToolStripMenuItem";
-            userAccountPageToolStripMenuItem.Size = new Size(180, 22);
-            userAccountPageToolStripMenuItem.Text = "User Account Page";
-            userAccountPageToolStripMenuItem.Click += userAccountPageToolStripMenuItem_Click;
+            xYZPOSIncToolStripMenuItem1.Text = "Payrol";
+            xYZPOSIncToolStripMenuItem1.Click += xYZPOSIncToolStripMenuItem1_Click;
             // 
             // payrollToolStripMenuItem
             // 
@@ -149,6 +135,42 @@
             payrollApplicationToolStripMenuItem.Text = "Payroll Application";
             payrollApplicationToolStripMenuItem.Click += payrollApplicationToolStripMenuItem_Click;
             // 
+            // humanResourcesToolStripMenuItem
+            // 
+            humanResourcesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { hRPageToolStripMenuItem });
+            humanResourcesToolStripMenuItem.Name = "humanResourcesToolStripMenuItem";
+            humanResourcesToolStripMenuItem.Size = new Size(115, 20);
+            humanResourcesToolStripMenuItem.Text = "Human Resources";
+            // 
+            // hRPageToolStripMenuItem
+            // 
+            hRPageToolStripMenuItem.Name = "hRPageToolStripMenuItem";
+            hRPageToolStripMenuItem.Size = new Size(119, 22);
+            hRPageToolStripMenuItem.Text = "HR Page";
+            hRPageToolStripMenuItem.Click += hRPageToolStripMenuItem_Click;
+            // 
+            // userAccountToolStripMenuItem
+            // 
+            userAccountToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { userAccountPageToolStripMenuItem, iTAdminToolStripMenuItem });
+            userAccountToolStripMenuItem.Name = "userAccountToolStripMenuItem";
+            userAccountToolStripMenuItem.Size = new Size(90, 20);
+            userAccountToolStripMenuItem.Text = "User Account";
+            userAccountToolStripMenuItem.Click += userAccountToolStripMenuItem_Click;
+            // 
+            // userAccountPageToolStripMenuItem
+            // 
+            userAccountPageToolStripMenuItem.Name = "userAccountPageToolStripMenuItem";
+            userAccountPageToolStripMenuItem.Size = new Size(180, 22);
+            userAccountPageToolStripMenuItem.Text = "IT Staff";
+            userAccountPageToolStripMenuItem.Click += userAccountPageToolStripMenuItem_Click;
+            // 
+            // iTAdminToolStripMenuItem
+            // 
+            iTAdminToolStripMenuItem.Name = "iTAdminToolStripMenuItem";
+            iTAdminToolStripMenuItem.Size = new Size(180, 22);
+            iTAdminToolStripMenuItem.Text = "IT Admin";
+            iTAdminToolStripMenuItem.Click += iTAdminToolStripMenuItem_Click;
+            // 
             // employeeInformationToolStripMenuItem
             // 
             employeeInformationToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { employeeRegistrationPageToolStripMenuItem });
@@ -161,10 +183,11 @@
             employeeRegistrationPageToolStripMenuItem.Name = "employeeRegistrationPageToolStripMenuItem";
             employeeRegistrationPageToolStripMenuItem.Size = new Size(221, 22);
             employeeRegistrationPageToolStripMenuItem.Text = "Employee Registration Page";
+            employeeRegistrationPageToolStripMenuItem.Click += employeeRegistrationPageToolStripMenuItem_Click;
             // 
             // reportsToolStripMenuItem
             // 
-            reportsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { salesReprotsToolStripMenuItem, productReportsToolStripMenuItem, employeesReportsToolStripMenuItem, payrollReprotsToolStripMenuItem, userReportsToolStripMenuItem });
+            reportsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { salesReprotsToolStripMenuItem, employeesReportsToolStripMenuItem, payrollReprotsToolStripMenuItem, userReportsToolStripMenuItem });
             reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             reportsToolStripMenuItem.Size = new Size(59, 20);
             reportsToolStripMenuItem.Text = "Reports";
@@ -173,31 +196,64 @@
             // 
             salesReprotsToolStripMenuItem.Name = "salesReprotsToolStripMenuItem";
             salesReprotsToolStripMenuItem.Size = new Size(174, 22);
-            salesReprotsToolStripMenuItem.Text = "Sales Reprots";
-            // 
-            // productReportsToolStripMenuItem
-            // 
-            productReportsToolStripMenuItem.Name = "productReportsToolStripMenuItem";
-            productReportsToolStripMenuItem.Size = new Size(174, 22);
-            productReportsToolStripMenuItem.Text = "Product Reports";
+            salesReprotsToolStripMenuItem.Text = "Sales Reports";
+            salesReprotsToolStripMenuItem.Click += salesReprotsToolStripMenuItem_Click;
             // 
             // employeesReportsToolStripMenuItem
             // 
             employeesReportsToolStripMenuItem.Name = "employeesReportsToolStripMenuItem";
             employeesReportsToolStripMenuItem.Size = new Size(174, 22);
             employeesReportsToolStripMenuItem.Text = "Employees Reports";
+            employeesReportsToolStripMenuItem.Click += employeesReportsToolStripMenuItem_Click;
             // 
             // payrollReprotsToolStripMenuItem
             // 
             payrollReprotsToolStripMenuItem.Name = "payrollReprotsToolStripMenuItem";
             payrollReprotsToolStripMenuItem.Size = new Size(174, 22);
             payrollReprotsToolStripMenuItem.Text = "Payroll Reports";
+            payrollReprotsToolStripMenuItem.Click += payrollReprotsToolStripMenuItem_Click;
             // 
             // userReportsToolStripMenuItem
             // 
             userReportsToolStripMenuItem.Name = "userReportsToolStripMenuItem";
             userReportsToolStripMenuItem.Size = new Size(174, 22);
             userReportsToolStripMenuItem.Text = "User Reports";
+            userReportsToolStripMenuItem.Click += userReportsToolStripMenuItem_Click;
+            // 
+            // otherActivitiesToolStripMenuItem
+            // 
+            otherActivitiesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { activity2ToolStripMenuItem, activity3ToolStripMenuItem, pOS2FunctionToolStripMenuItem, pOS2ClassToolStripMenuItem });
+            otherActivitiesToolStripMenuItem.Name = "otherActivitiesToolStripMenuItem";
+            otherActivitiesToolStripMenuItem.Size = new Size(100, 20);
+            otherActivitiesToolStripMenuItem.Text = "Other Activities";
+            // 
+            // activity2ToolStripMenuItem
+            // 
+            activity2ToolStripMenuItem.Name = "activity2ToolStripMenuItem";
+            activity2ToolStripMenuItem.Size = new Size(155, 22);
+            activity2ToolStripMenuItem.Text = "POS 1 Function";
+            activity2ToolStripMenuItem.Click += activity2ToolStripMenuItem_Click;
+            // 
+            // activity3ToolStripMenuItem
+            // 
+            activity3ToolStripMenuItem.Name = "activity3ToolStripMenuItem";
+            activity3ToolStripMenuItem.Size = new Size(155, 22);
+            activity3ToolStripMenuItem.Text = "POS 1 Class";
+            activity3ToolStripMenuItem.Click += activity3ToolStripMenuItem_Click;
+            // 
+            // pOS2FunctionToolStripMenuItem
+            // 
+            pOS2FunctionToolStripMenuItem.Name = "pOS2FunctionToolStripMenuItem";
+            pOS2FunctionToolStripMenuItem.Size = new Size(155, 22);
+            pOS2FunctionToolStripMenuItem.Text = "POS 2 Function";
+            pOS2FunctionToolStripMenuItem.Click += pOS2FunctionToolStripMenuItem_Click;
+            // 
+            // pOS2ClassToolStripMenuItem
+            // 
+            pOS2ClassToolStripMenuItem.Name = "pOS2ClassToolStripMenuItem";
+            pOS2ClassToolStripMenuItem.Size = new Size(155, 22);
+            pOS2ClassToolStripMenuItem.Text = "POS 2 Class";
+            pOS2ClassToolStripMenuItem.Click += pOS2ClassToolStripMenuItem_Click;
             // 
             // windowToolStripMenuItem
             // 
@@ -268,17 +324,23 @@
         private ToolStrip toolStrip1;
         private ToolStripMenuItem logoToolStripMenuItem;
         private ToolStripMenuItem xYZPOSIncToolStripMenuItem1;
-        private ToolStripMenuItem xYZPOSOrderingToolStripMenuItem1;
         private ToolStripMenuItem userAccountPageToolStripMenuItem;
         private ToolStripMenuItem payrollApplicationToolStripMenuItem;
         private ToolStripMenuItem employeeRegistrationPageToolStripMenuItem;
         private ToolStripMenuItem salesReprotsToolStripMenuItem;
-        private ToolStripMenuItem productReportsToolStripMenuItem;
         private ToolStripMenuItem employeesReportsToolStripMenuItem;
         private ToolStripMenuItem payrollReprotsToolStripMenuItem;
         private ToolStripMenuItem userReportsToolStripMenuItem;
         private ToolStripMenuItem tileVerticalToolStripMenuItem;
         private ToolStripMenuItem tileHorizontalToolStripMenuItem;
         private ToolStripMenuItem cascadeToolStripMenuItem;
+        private ToolStripMenuItem humanResourcesToolStripMenuItem;
+        private ToolStripMenuItem otherActivitiesToolStripMenuItem;
+        private ToolStripMenuItem activity2ToolStripMenuItem;
+        private ToolStripMenuItem activity3ToolStripMenuItem;
+        private ToolStripMenuItem pOS2FunctionToolStripMenuItem;
+        private ToolStripMenuItem pOS2ClassToolStripMenuItem;
+        private ToolStripMenuItem hRPageToolStripMenuItem;
+        private ToolStripMenuItem iTAdminToolStripMenuItem;
     }
 }

@@ -24,14 +24,14 @@ namespace LESSON_1
 
         private void xYZPOSOrderingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Activity2 newMDIChild = new Activity2();
+            Example3_Finals newMDIChild = new Example3_Finals();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
         private void simplePOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Activity3 newMDIChild = new Activity3();
+            POS_Admin newMDIChild = new POS_Admin();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
@@ -65,14 +65,14 @@ namespace LESSON_1
 
         private void userAccountPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1 newMDIChild = new Form1();
+            User_Account newMDIChild = new User_Account();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
         private void xYZPOSIncToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            Activity1 newMDIChild = new Activity1();
+            Example2_Finals newMDIChild = new Example2_Finals();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
@@ -82,6 +82,102 @@ namespace LESSON_1
             Example6 newMDICchild = new Example6();
             newMDICchild.MdiParent = this;
             newMDICchild.Show();
+        }
+
+        private void userAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void employeeRegistrationPageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            employee_registration newMDIChild = new employee_registration();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void salesReprotsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Sales_Reports newMDIChild = new Sales_Reports();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void employeesReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Employee_Reports newMDIChild = new Employee_Reports();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void payrollReprotsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Payrol_Report newMDIChild = new Payrol_Report();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void userReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserAccount_Report newMDIChild = new UserAccount_Report();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void activity1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Activity1 newMDIChild = new Activity1();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void activity2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pos1_func newMDIChild = new pos1_func();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void activity3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pos1_class newMDIChild = new pos1_class();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void pOS2FunctionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pos2_func newMDIChild = new pos2_func();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void pOS2ClassToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pos2_class newMDIChild = new pos2_class();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void hRPageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            employee_registration newMDIChild = new employee_registration();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void iTAdminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            User_Account newMDIChild = new User_Account();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void xYZPOSIncToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            payslip_view newMDIChild = new payslip_view();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
         }
     }
 }

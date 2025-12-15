@@ -30,7 +30,7 @@ namespace LESSON_1
         private void User_Account_Load(object sender, EventArgs e)
         {
             firstnameTxtbox.Enabled = false;
-            middlenameTxtbox.Enabled = false;
+            middlenameTxtbox.Enabled = false; 
             surnameTxtbox.Enabled = false;
             designationTxtbox.Enabled = false;
             picpathTxtbox.Enabled = false;
@@ -45,7 +45,7 @@ namespace LESSON_1
 
         private void searchBtn_Click(object sender, EventArgs e)
         {
-            useraccount_db_connect.useraccount_sql = "SELECT * emp_id, emp_fname, emp_mname, emp_surname, position, picpath FROM pos_empRegTbl WHERE emp_id = '" + emp_idTxtbox.Text + "'";
+            useraccount_db_connect.useraccount_sql = "SELECT emp_id, emp_fname, emp_mname, emp_surname, position, picpath FROM pos_empRegTbl WHERE emp_id = '" + emp_idTxtbox.Text + "'";
             useraccount_db_connect.useraccount_cmd();
             useraccount_db_connect.useraccount_sqladapterSelect();
             useraccount_db_connect.useraccount_sqldatasetSELECT();
@@ -59,7 +59,7 @@ namespace LESSON_1
 
         private void searchForUpdateBtn_Click(object sender, EventArgs e)
         {
-            useraccount_db_connect.useraccount_sql = "SELECT pos_empRegTbl.emp_id, emp_id, emp_fname, emp_mname, emp_surname, position, picpath, user_id, username, password, user_status, account_type FROM pos_empRegTbl INNER JOIN useraccountTbl ON pos_empRegTbl.emp_id = useraccountTbl.emp_id WHERE user_id = '" + userIDTxtbox.Text + "'";
+            useraccount_db_connect.useraccount_sql = "SELECT pos_empRegTbl.emp_id, emp_fname, emp_mname, emp_surname, position, picpath, user_id, username, password, user_status, account_type FROM pos_empRegTbl INNER JOIN useraccountTbl ON pos_empRegTbl.emp_id = useraccountTbl.emp_id WHERE user_id = '" + userIDTxtbox.Text + "'";
             useraccount_db_connect.useraccount_cmd();
             useraccount_db_connect.useraccount_sqladapterSelect();
             useraccount_db_connect.useraccount_sqldatasetSELECT();
@@ -84,7 +84,7 @@ namespace LESSON_1
             useraccount_db_connect.useraccount_cmd();
             useraccount_db_connect.useraccount_sqladapterUpdate();
 
-            useraccount_db_connect.useraccount_sql = "SELECT pos_empRegTbl.emp_id, emp_id, emp_fname, emp_mname, emp_surname, position, user_id, username, password, user_status, account_type FROM pos_empRegTbl INNER JOIN useraccountTbl ON pos_empRegTbl.emp_id = useraccountTbl.emp_id";
+            useraccount_db_connect.useraccount_sql = "SELECT pos_empRegTbl.emp_id, emp_fname, emp_mname, emp_surname, position, user_id, username, password, user_status, account_type FROM pos_empRegTbl INNER JOIN useraccountTbl ON pos_empRegTbl.emp_id = useraccountTbl.emp_id";
             useraccount_db_connect.useraccount_cmd();
             useraccount_db_connect.useraccount_sqladapterSelect();
             useraccount_db_connect.useraccount_sqldatasetSELECT();
@@ -96,7 +96,7 @@ namespace LESSON_1
             useraccount_db_connect.useraccount_sql = "DELETE FROM useraccountTbl WHERE user_id = '" + userIDTxtbox.Text + "'";
             useraccount_db_connect.useraccount_cmd();
             useraccount_db_connect.useraccount_sqladapterDelete();
-            useraccount_db_connect.useraccount_sql = "SELECT pos_empRegTbl.emp_id, emp_id, emp_fname, emp_mname, emp_surname, position, picpath, user_id, username, password, user_status, account_type FROM pos_empRegTbl INNER JOIN useraccountTbl ON pos_empRegTbl.emp_id = useraccountTbl.emp_id";
+            useraccount_db_connect.useraccount_sql = "SELECT pos_empRegTbl.emp_id, emp_fname, emp_mname, emp_surname, position, picpath, user_id, username, password, user_status, account_type FROM pos_empRegTbl INNER JOIN useraccountTbl ON pos_empRegTbl.emp_id = useraccountTbl.emp_id";
             useraccount_db_connect.useraccount_cmd();
             useraccount_db_connect.useraccount_sqladapterSelect();
             useraccount_db_connect.useraccount_sqldatasetSELECT();
@@ -108,6 +108,11 @@ namespace LESSON_1
             useraccount_db_connect.useraccount_sql = "INSERT INTO useraccountTbl (user_id, account_type, username, password, confirm_password, user_status, emp_id) VALUES ('" + userIDTxtbox.Text + "', '" + accountTypeComboBox.Text + "', '" + usernameTxtbox.Text + "', '" + passwordTxtbox.Text + "', '" + confirmPasswordTxtbox.Text + "', '" + account_statusComboBox.Text + "', '" + emp_idTxtbox.Text + "')";
             useraccount_db_connect.useraccount_cmd();
             useraccount_db_connect.useraccount_sqladapterInsert();
+            dataGridView1.DataSource = useraccount_db_connect.useraccount_sql_dataset.Tables[0];
+
+            useraccount_db_connect.useraccount_sql = "SELECT pos_empRegTbl.emp_id, emp_fname, emp_mname, emp_surname, position, picpath, user_id, username, password, user_status, account_type FROM pos_empRegTbl INNER JOIN useraccountTbl ON pos_empRegTbl.emp_id = useraccountTbl.emp_id";
+            useraccount_db_connect.useraccount_cmd();
+            useraccount_db_connect.useraccount_sqladapterSelect();
             useraccount_db_connect.useraccount_sqldatasetSELECT();
             dataGridView1.DataSource = useraccount_db_connect.useraccount_sql_dataset.Tables[0];
         }

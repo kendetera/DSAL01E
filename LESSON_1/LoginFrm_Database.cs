@@ -35,9 +35,9 @@ namespace LESSON_1
             login_db_connect.login_sqladapterSelect();
             login_db_connect.login_sqldatasetSELECT();
 
-            username1 = login_db_connect.login_sql_dataset.Tables[0].Rows[0][3].ToString();
-            password1 = login_db_connect.login_sql_dataset.Tables[0].Rows[0][4].ToString();
-            user_level = login_db_connect.login_sql_dataset.Tables[0].Rows[0][5].ToString();
+            username1 = login_db_connect.login_sql_dataset.Tables[0].Rows[0][4].ToString();
+            password1 = login_db_connect.login_sql_dataset.Tables[0].Rows[0][5].ToString();
+            user_level = login_db_connect.login_sql_dataset.Tables[0].Rows[0][6].ToString();
 
             if ((username1 == usernameTxtBox.Text) && password1 == (passwordTxtBox.Text))
             {

@@ -77,7 +77,7 @@
             // optionCombo
             // 
             optionCombo.FormattingEnabled = true;
-            optionCombo.Items.AddRange(new object[] { "transaction_id", "terminal_number", "date and time", "product name", "employee_number" });
+            optionCombo.Items.AddRange(new object[] { "user_id", "employee_number", "surname", "firstname", "active", "deactivate" });
             optionCombo.Location = new Point(211, 88);
             optionCombo.Name = "optionCombo";
             optionCombo.Size = new Size(276, 23);

@@ -152,6 +152,7 @@
             picbox.Location = new Point(63, 58);
             picbox.Name = "picbox";
             picbox.Size = new Size(323, 279);
+            picbox.SizeMode = PictureBoxSizeMode.StretchImage;
             picbox.TabIndex = 0;
             picbox.TabStop = false;
             // 
@@ -258,6 +259,7 @@
             // statusComboBox
             // 
             statusComboBox.FormattingEnabled = true;
+            statusComboBox.Items.AddRange(new object[] { "active", "deactivate", "" });
             statusComboBox.Location = new Point(181, 853);
             statusComboBox.Name = "statusComboBox";
             statusComboBox.Size = new Size(134, 23);
@@ -317,6 +319,7 @@
             // genderComboBox
             // 
             genderComboBox.FormattingEnabled = true;
+            genderComboBox.Items.AddRange(new object[] { "Male", "Female" });
             genderComboBox.Location = new Point(181, 635);
             genderComboBox.Name = "genderComboBox";
             genderComboBox.Size = new Size(135, 23);

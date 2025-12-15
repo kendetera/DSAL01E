@@ -798,7 +798,6 @@
             // pictureBox1
             // 
             pictureBox1.BorderStyle = BorderStyle.Fixed3D;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(23, 37);
             pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
@@ -1623,7 +1622,7 @@
             // 
             emp_idLbl.AutoSize = true;
             emp_idLbl.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            emp_idLbl.Location = new Point(126, 83);
+            emp_idLbl.Location = new Point(148, 83);
             emp_idLbl.Name = "emp_idLbl";
             emp_idLbl.Size = new Size(88, 20);
             emp_idLbl.TabIndex = 108;
